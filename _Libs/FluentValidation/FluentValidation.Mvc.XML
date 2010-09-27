@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FluentValidation.Mvc</name>
+    </assembly>
+    <members>
+        <member name="T:FluentValidation.Mvc.FluentValidationModelBinder">
+            <summary>
+            Model Binder implementation that integrated with FluentValidation. 
+            After binding takes place a validator will be instantiated using the specified validator factory
+            and the bound object will be validated. Any validation errors are added to ModelState.
+            </summary>
+        </member>
+        <member name="T:FluentValidation.Mvc.FluentValidationModelBinderDecorator">
+            <summary>
+            Model Binder implementation that integrated with FluentValidation. 
+            After binding takes place a validator will be instantiated using the specified validator factory
+            and the bound object will be validated. Any validation errors are added to ModelState.
+            </summary>
+        </member>
+        <member name="T:FluentValidation.Mvc.FluentValidationModelValidator">
+            <summary>
+            ModelValidator implementation that uses FluentValidation.
+            </summary>
+        </member>
+        <member name="T:FluentValidation.Mvc.FluentValidationModelValidatorProvider">
+            <summary>
+            Implementation of ModelValidatorProvider that uses FluentValidation.
+            </summary>
+        </member>
+        <member name="M:FluentValidation.Mvc.ValidationResultExtension.AddToModelState(FluentValidation.Results.ValidationResult,System.Web.Mvc.ModelStateDictionary,System.String)">
+            <summary>
+            Stores the errors in a ValidationResult object to the specified modelstate dictionary.
+            </summary>
+            <param name="result">The validation result to store</param>
+            <param name="modelState">The ModelStateDictionary to store the errors in.</param>
+            <param name="prefix">An optional prefix. If ommitted, the property names will be the keys. If specified, the prefix will be concatenatd to the property name with a period. Eg "user.Name"</param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RavenGallery", "RavenGallery\RavenGallery.csproj", "{396D7541-E559-4E56-8CF4-49193BA1A871}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RavenGallery.Core", "RavenGallery.Core\RavenGallery.Core.csproj", "{A92F7F6B-BFD1-42E5-AFD9-B2EBB3501655}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{396D7541-E559-4E56-8CF4-49193BA1A871}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{396D7541-E559-4E56-8CF4-49193BA1A871}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{396D7541-E559-4E56-8CF4-49193BA1A871}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{396D7541-E559-4E56-8CF4-49193BA1A871}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A92F7F6B-BFD1-42E5-AFD9-B2EBB3501655}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A92F7F6B-BFD1-42E5-AFD9-B2EBB3501655}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A92F7F6B-BFD1-42E5-AFD9-B2EBB3501655}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A92F7F6B-BFD1-42E5-AFD9-B2EBB3501655}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
