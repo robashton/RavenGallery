@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RavenGallery", "RavenGaller
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RavenGallery.Core", "RavenGallery.Core\RavenGallery.Core.csproj", "{A92F7F6B-BFD1-42E5-AFD9-B2EBB3501655}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RavenGallery.Core.Tests", "RavenGallery.Core.Tests\RavenGallery.Core.Tests.csproj", "{B13D2CD5-D05A-47B5-87EE-8CACCFB85F0E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{A92F7F6B-BFD1-42E5-AFD9-B2EBB3501655}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A92F7F6B-BFD1-42E5-AFD9-B2EBB3501655}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A92F7F6B-BFD1-42E5-AFD9-B2EBB3501655}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B13D2CD5-D05A-47B5-87EE-8CACCFB85F0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B13D2CD5-D05A-47B5-87EE-8CACCFB85F0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B13D2CD5-D05A-47B5-87EE-8CACCFB85F0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B13D2CD5-D05A-47B5-87EE-8CACCFB85F0E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
