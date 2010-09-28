@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RavenGallery.Core", "RavenG
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RavenGallery.Core.Tests", "RavenGallery.Core.Tests\RavenGallery.Core.Tests.csproj", "{B13D2CD5-D05A-47B5-87EE-8CACCFB85F0E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RavenGallery.Core.Tests.Integration", "RavenGallery.Core.Tests.Integration\RavenGallery.Core.Tests.Integration.csproj", "{92B4CA92-98D4-4E57-90A7-091F14C1DB76}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{B13D2CD5-D05A-47B5-87EE-8CACCFB85F0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B13D2CD5-D05A-47B5-87EE-8CACCFB85F0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B13D2CD5-D05A-47B5-87EE-8CACCFB85F0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92B4CA92-98D4-4E57-90A7-091F14C1DB76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92B4CA92-98D4-4E57-90A7-091F14C1DB76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92B4CA92-98D4-4E57-90A7-091F14C1DB76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92B4CA92-98D4-4E57-90A7-091F14C1DB76}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
