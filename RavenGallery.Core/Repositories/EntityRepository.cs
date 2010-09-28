@@ -7,7 +7,7 @@ using Raven.Client;
 
 namespace RavenGallery.Core.Repositories
 {
-    public abstract class EntityRepository<TEntity, TDoc> : IEntityRepository<TEntity> where TEntity : IEntity<TDoc>
+    public abstract class EntityRepository<TEntity, TDoc> : IEntityRepository<TEntity, TDoc> where TEntity : IEntity<TDoc>
     {
         private IDocumentSession documentSession;
 
@@ -21,12 +21,12 @@ namespace RavenGallery.Core.Repositories
             return Create(this.documentSession.Load<TDoc>(id));
         }
 
-        public void Save(TEntity entity)
+        public void Add(TEntity entity)
         {
             this.documentSession.Store(entity.GetInnerDocument());
         }
 
-        public void Delete(TEntity entity)
+        public void Remove(TEntity entity)
         {
             this.documentSession.Delete(entity.GetInnerDocument());
         }

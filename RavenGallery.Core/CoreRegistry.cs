@@ -13,23 +13,23 @@ namespace RavenGallery.Core
     {
         public CoreRegistry(IDocumentStore documentStore)
         {
-            For<IDocumentStore>().Use(documentStore);
-            For<IDocumentSession>()
-                .HttpContextScoped()
-                .Use(x =>
-                {
-                    var store = x.GetInstance<IDocumentStore>();
-                    return store.OpenSession();
-                });
-
             Scan(s =>
             {
-                s.AssembliesFromApplicationBaseDirectory();
+                s.AssembliesFromApplicationBaseDirectory(x => x.FullName.StartsWith("RavenGallery"));
                 s.With(new RegisterGenericTypes(typeof(IViewFactory<,>)));
                 s.With(new RegisterGenericTypes(typeof(ICommandHandler<>)));
                 s.With(new RegisterGenericTypes(typeof(IValidator<>)));
                 s.WithDefaultConventions();
             });
+
+            For<IDocumentStore>().Use(documentStore);
+            For<IDocumentSession>()
+                .HybridHttpOrThreadLocalScoped()
+                .Use(x =>
+                {
+                    var store = x.GetInstance<IDocumentStore>();
+                    return store.OpenSession();
+                });
         }
     }
 }

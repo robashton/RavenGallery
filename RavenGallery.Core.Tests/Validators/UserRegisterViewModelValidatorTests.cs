@@ -15,6 +15,26 @@ namespace RavenGallery.Core.Tests.Validators
     public class UserRegisterViewModelValidatorTests
     {
         [Test]
+        [TestCase("342fg2eg", true)]
+        [TestCase("342fg2eg'", false)]
+        [TestCase("'342fg2eg", false)]
+        [TestCase("342f'g2eg", false)]
+        public void UsernameOnlyAcceptsAlphaNumericCharacters(string test, bool result)
+        {
+            Mock<IUserService> sessionMock = new Mock<IUserService>();
+            sessionMock.Setup(x => x.DoesUserExistWithUsername(test)).Returns(false);
+            UserRegisterViewModelValidator validator = new UserRegisterViewModelValidator(sessionMock.Object);
+            var results = validator.Validate(new ViewModels.UserRegisterViewModel()
+            {
+                Username = test,
+                Password = "test",
+                StayLoggedIn = true
+            });
+
+            Assert.AreEqual(result, results.IsValid);
+        }
+
+        [Test]
         public void WhenUserExistsValidationFails()
         {
             Mock<IUserService> sessionMock = new Mock<IUserService>();

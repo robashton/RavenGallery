@@ -20,7 +20,7 @@ namespace RavenGallery.Core.CommandHandlers
         public void Handle(RegisterNewUserCommand command)
         {
             User newUser = new User(command.Username, command.Password);
-            userRepository.Save(newUser);
+            userRepository.Add(newUser);
         }
     }
 }

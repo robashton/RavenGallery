@@ -81,11 +81,10 @@
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="CommandHandlers\RegisterNewUserCommandHandler.cs" />
+    <Compile Include="CommandInvoker.cs" />
     <Compile Include="Commands\RegisterNewUserCommand.cs" />
     <Compile Include="Conventions\RegisterGenericTypes.cs" />
     <Compile Include="CoreRegistry.cs" />
-    <Compile Include="Documents\Image.cs" />
-    <Compile Include="Documents\ImageTag.cs" />
     <Compile Include="Documents\UserDocument.cs" />
     <Compile Include="Entities\IEntity.cs" />
     <Compile Include="Entities\User.cs" />

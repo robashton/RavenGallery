@@ -2,31 +2,30 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
-using Docs = RavenGallery.Core.Documents;
 using RavenGallery.Core.Utility;
+using RavenGallery.Core.Documents;
 
 namespace RavenGallery.Core.Entities
 {
-    public class User : IEntity<Docs.UserDocument>
+    public class User : IEntity<UserDocument>
     {
-        private Docs.UserDocument innerUser;        
+        private UserDocument innerUser;        
 
         public User(string username, string password)
         {
-            innerUser = new Docs.UserDocument()
+            innerUser = new UserDocument()
             {
                  PasswordHash = HashUtil.HashPassword(password),
                  Username = username
             };
         }
 
-        public User(Docs.UserDocument innerUser)
+        public User(UserDocument innerUser)
         {
             this.innerUser = innerUser;
         }
 
-        Docs.UserDocument IEntity<Docs.UserDocument>.GetInnerDocument()
+        UserDocument IEntity<UserDocument>.GetInnerDocument()
         {
             return innerUser;
         }

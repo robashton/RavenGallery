@@ -39,7 +39,7 @@ namespace RavenGallery.Controllers
             else
             {
                 // Return back to the page
-                return View();
+                return View(model);
             }            
         }
     }

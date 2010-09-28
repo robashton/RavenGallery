@@ -3,24 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using RavenGallery.Core.Entities;
+using RavenGallery.Core.Documents;
+using Raven.Client;
 
 namespace RavenGallery.Core.Repositories
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository : EntityRepository<User, UserDocument>, IUserRepository
     {
-        public User Load(string id)
-        {
-            throw new NotImplementedException();
-        }
+        public UserRepository(IDocumentSession documentSession) : base(documentSession) { }
 
-        public void Save(User entity)
+        protected override User Create(UserDocument doc)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(User entity)
-        {
-            throw new NotImplementedException();
+            return new User(doc);
         }
     }
 }
