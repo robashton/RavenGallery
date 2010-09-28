@@ -15,8 +15,9 @@ namespace RavenGallery.Core.Entities
         {
             innerUser = new UserDocument()
             {
-                 PasswordHash = HashUtil.HashPassword(password),
-                 Username = username
+                Id =string.Format("users/{0}", username),
+                PasswordHash = HashUtil.HashPassword(password),
+                Username = username
             };
         }
 

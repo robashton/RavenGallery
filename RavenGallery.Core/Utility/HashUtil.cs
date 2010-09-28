@@ -9,6 +9,7 @@ namespace RavenGallery.Core.Utility
     {
         public static string HashPassword(string password)
         {
+            // Irrelevant for this
             return password;
         }
     }

@@ -11,9 +11,9 @@
       { %>
 
       <ul>
-        <li><%=Html.LabelFor(x=>x.Username) %> <%= Html.TextBoxFor(x => x.Username) %><%= Html.ValidationMessageFor(model => Model.Username)%></li>
-        <li><%=Html.LabelFor(x => x.Password)%> <%= Html.PasswordFor(x => x.Password) %><%= Html.ValidationMessageFor(model => Model.Password)%></li>
-        <li><%=Html.LabelFor(x => x.StayLoggedIn)%> <%= Html.CheckBoxFor(x => x.StayLoggedIn) %><%= Html.ValidationMessageFor(model => Model.StayLoggedIn)%></li>
+        <li><%=Html.LabelFor(x=>x.Username) %> <%= Html.TextBoxFor(x => x.Username) %> <%= Html.ValidationMessageFor(model => Model.Username)%></li>
+        <li><%=Html.LabelFor(x => x.Password)%> <%= Html.PasswordFor(x => x.Password) %> <%= Html.ValidationMessageFor(model => Model.Password)%></li>
+        <li><%=Html.LabelFor(x => x.StayLoggedIn)%> <%= Html.CheckBoxFor(x => x.StayLoggedIn) %> <%= Html.ValidationMessageFor(model => Model.StayLoggedIn)%></li>
       </ul>    
 
       <input type="submit" />
