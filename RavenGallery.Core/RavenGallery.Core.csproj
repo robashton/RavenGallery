@@ -79,6 +79,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bootstrapper.cs" />
     <Compile Include="CoreRegistry.cs" />
     <Compile Include="StructureMapControllerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

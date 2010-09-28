@@ -11,3 +11,4 @@ _ReSharper.*
 *.resharper.user
 *.rptproj.user
 *.db
+App_Data

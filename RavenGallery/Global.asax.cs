@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using RavenGallery.Core;
+using StructureMap;
 
 namespace RavenGallery
 {
@@ -29,6 +31,12 @@ namespace RavenGallery
             AreaRegistration.RegisterAllAreas();
             RegisterRoutes(RouteTable.Routes);
             ControllerBuilder.Current.SetControllerFactory(new RavenGallery.Core.StructureMapControllerFactory());
+            Bootstrapper.Startup();
+        }
+
+        protected void Application_EndRequest()
+        {
+            ObjectFactory.ReleaseAndDisposeAllHttpScopedObjects();
         }
     }
 }
