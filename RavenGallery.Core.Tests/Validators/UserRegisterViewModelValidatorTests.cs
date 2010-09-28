@@ -27,7 +27,7 @@ namespace RavenGallery.Core.Tests.Validators
             var results = validator.Validate(new ViewModels.UserRegisterViewModel()
             {
                 Username = test,
-                Password = "test",
+                Password = "tester",
                 StayLoggedIn = true
             });
 
@@ -38,12 +38,12 @@ namespace RavenGallery.Core.Tests.Validators
         public void WhenUserExistsValidationFails()
         {
             Mock<IUserService> sessionMock = new Mock<IUserService>();
-            sessionMock.Setup(x => x.DoesUserExistWithUsername("test")).Returns(true);
+            sessionMock.Setup(x => x.DoesUserExistWithUsername("tester")).Returns(true);
             UserRegisterViewModelValidator validator = new UserRegisterViewModelValidator(sessionMock.Object);
             var results = validator.Validate(new ViewModels.UserRegisterViewModel()
             {
-                 Username = "test",
-                 Password = "test",
+                 Username = "tester",
+                 Password = "tester",
                  StayLoggedIn = true
             });
 
@@ -54,12 +54,12 @@ namespace RavenGallery.Core.Tests.Validators
         public void WhenUserDoesNotExistValidationSucceeds()
         {
             Mock<IUserService> sessionMock = new Mock<IUserService>();
-            sessionMock.Setup(x => x.DoesUserExistWithUsername("test")).Returns(false);
+            sessionMock.Setup(x => x.DoesUserExistWithUsername("tester")).Returns(false);
             UserRegisterViewModelValidator validator = new UserRegisterViewModelValidator(sessionMock.Object);
             var results = validator.Validate(new ViewModels.UserRegisterViewModel()
             {
-                Username = "test",
-                Password = "test",
+                Username = "tester",
+                Password = "tester",
                 StayLoggedIn = true
             });
 

@@ -8,5 +8,6 @@ namespace RavenGallery.Core.Services
     public interface IUserService
     {
         bool DoesUserExistWithUsername(string username);
+        bool DoesUserExistWithUsernameAndPassword(string username, string password);
     }
 }

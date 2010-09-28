@@ -96,6 +96,8 @@
     <Compile Include="Repositories\EntityRepository.cs" />
     <Compile Include="Repositories\IUserRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Security\AuthenticationService.cs" />
+    <Compile Include="Security\IAuthenticationService.cs" />
     <Compile Include="Services\IUserService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="StructureMapControllerFactory.cs" />

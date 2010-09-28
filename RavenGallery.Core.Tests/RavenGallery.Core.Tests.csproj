@@ -101,6 +101,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\EntityRepositoryTests.cs" />
     <Compile Include="Services\UserServiceTests.cs" />
+    <Compile Include="Validators\UserLogonViewModelValidatorTests.cs" />
     <Compile Include="Validators\UserRegisterViewModelValidatorTests.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -113,7 +114,6 @@
       <Name>RavenGallery</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

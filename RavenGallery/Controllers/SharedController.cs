@@ -9,6 +9,7 @@ namespace RavenGallery.Controllers
     [HandleError]
     public class SharedController : Controller
     {
+        [Authorize]
         public ActionResult Error()
         {
             return View();
