@@ -96,6 +96,7 @@
     <Compile Include="CommandHandlers\RegisterNewUserCommandHandlerTests.cs" />
     <Compile Include="CommandInvokerTests.cs" />
     <Compile Include="Controllers\UserControllerTests.cs" />
+    <Compile Include="Entities\ImageEntityTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\EntityRepositoryTests.cs" />
     <Compile Include="Validators\UserLogonViewModelValidatorTests.cs" />
