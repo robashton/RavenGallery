@@ -16,7 +16,6 @@ namespace RavenGallery.Validators
                 .Must(x => !userService.DoesUserExistWithUsername(x)).WithMessage("This user already exists")
                 .Matches("^[A-z0-9]+$").WithMessage("Username can only contain alpha numeric characters");
             this.RuleFor(x => x.Password).NotEmpty();
-            this.RuleFor(x => x.StayLoggedIn).NotEmpty();
         }
     }
 }
