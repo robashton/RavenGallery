@@ -15,6 +15,7 @@ namespace RavenGallery.Core.Tests
         [Test]
         public void WhenCommandIsSentAndHandlerIsPresent_HandlerIsInvoked()
         {
+            ObjectFactory.ResetDefaults();
             Mock<ICommandHandler<String>> mockHandler = new Mock<ICommandHandler<string>>();
             Mock<IDocumentSession> documentSessionMock = new Mock<IDocumentSession>();
             ObjectFactory.Configure(x => x.For<ICommandHandler<string>>().Use(mockHandler.Object));
@@ -27,6 +28,7 @@ namespace RavenGallery.Core.Tests
         [Test]
         public void WhenCommandIsSentAndHandlerIsPresent_SessionIsFlushed()
         {
+            ObjectFactory.ResetDefaults();
             Mock<ICommandHandler<String>> mockHandler = new Mock<ICommandHandler<string>>();
             Mock<IDocumentSession> documentSessionMock = new Mock<IDocumentSession>();
             ObjectFactory.Configure(x => x.For<ICommandHandler<string>>().Use(mockHandler.Object));
@@ -39,6 +41,7 @@ namespace RavenGallery.Core.Tests
         [Test]
         public void WhenCommandIsSentAndHandlerIsPresentButExceptionIsThrown_SessionIsNotFlushed()
         {
+            ObjectFactory.ResetDefaults();
             Mock<ICommandHandler<String>> mockHandler = new Mock<ICommandHandler<string>>();
             mockHandler.Setup(x => x.Handle(It.IsAny<string>())).Throws<Exception>();
             Mock<IDocumentSession> documentSessionMock = new Mock<IDocumentSession>();

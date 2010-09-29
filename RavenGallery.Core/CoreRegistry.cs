@@ -6,6 +6,7 @@ using StructureMap.Configuration.DSL;
 using Raven.Client;
 using RavenGallery.Core.Conventions;
 using FluentValidation;
+using RavenGallery.Core.Web;
 
 namespace RavenGallery.Core
 {
@@ -16,9 +17,10 @@ namespace RavenGallery.Core
             Scan(s =>
             {
                 s.AssembliesFromApplicationBaseDirectory(x => x.FullName.StartsWith("RavenGallery"));
-                s.With(new RegisterGenericTypes(typeof(IViewFactory<,>)));
-                s.With(new RegisterGenericTypes(typeof(ICommandHandler<>)));
-                s.With(new RegisterGenericTypes(typeof(IValidator<>)));
+                s.With(new RegisterGenericTypesOfInterface(typeof(IViewFactory<,>)));
+                s.With(new RegisterGenericTypesOfInterface(typeof(ICommandHandler<>)));
+                s.With(new RegisterGenericTypesOfInterface(typeof(IValidator<>)));
+                s.With(new RegisterGenericTypesOfInterface(typeof(IModelBinder<>)));
                 s.With(new RegisterFirstInstanceOfInterface());
             });
 

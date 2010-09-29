@@ -105,14 +105,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\SharedController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validators\ImageNewViewModelValidator.cs" />
     <Compile Include="Validators\UserRegisterViewModelValidator.cs" />
     <Compile Include="Validators\UserSignInViewModelValidator.cs" />
+    <Compile Include="ViewModelBinders\ImageNewViewModelBinder.cs" />
+    <Compile Include="ViewModels\ImageNewViewModel.cs" />
     <Compile Include="ViewModels\UserRegisterViewModel.cs" />
     <Compile Include="ViewModels\UserSignInViewModel.cs" />
   </ItemGroup>
@@ -120,6 +124,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Views\Image\New.aspx" />
     <Content Include="Views\User\SignIn.aspx" />
     <Content Include="Views\User\Register.aspx" />
     <Content Include="Views\User\SignOut.aspx" />

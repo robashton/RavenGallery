@@ -86,7 +86,7 @@
     <Compile Include="Commands\RegisterNewUserCommand.cs" />
     <Compile Include="Commands\UploadUserImageCommand.cs" />
     <Compile Include="Conventions\RegisterFirstInstanceOfInterface.cs" />
-    <Compile Include="Conventions\RegisterGenericTypes.cs" />
+    <Compile Include="Conventions\RegisterGenericTypesOfInterface.cs" />
     <Compile Include="CoreRegistry.cs" />
     <Compile Include="Documents\IDocument.cs" />
     <Compile Include="Documents\ImageTagDocument.cs" />
@@ -116,6 +116,7 @@
     <Compile Include="StructureMapControllerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\HashUtil.cs" />
+    <Compile Include="Web\GenericModelBinder.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

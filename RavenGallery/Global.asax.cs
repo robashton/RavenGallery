@@ -9,6 +9,7 @@ using StructureMap;
 using FluentValidation.Attributes;
 using FluentValidation.Mvc;
 using FluentValidation;
+using RavenGallery.Core.Web;
 
 namespace RavenGallery
 {
@@ -33,9 +34,11 @@ namespace RavenGallery
         {
             AreaRegistration.RegisterAllAreas();
             RegisterRoutes(RouteTable.Routes);
+
             ModelValidatorProviders.Providers.Add(
                 new FluentValidationModelValidatorProvider(new StructureMapValidatorFactory()));
             ControllerBuilder.Current.SetControllerFactory(new RavenGallery.Core.StructureMapControllerFactory());
+            ModelBinders.Binders.DefaultBinder = new GenericBinderResolver();
             Bootstrapper.Startup();
         }
 
