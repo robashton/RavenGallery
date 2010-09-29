@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.Security;
+using RavenGallery.Core.Utility;
 
 namespace RavenGallery.Core.Security
 {
@@ -10,7 +11,7 @@ namespace RavenGallery.Core.Security
     {
         public void SignIn(string username, bool persistent)
         {
-            FormsAuthentication.SetAuthCookie(username, persistent);
+            FormsAuthentication.SetAuthCookie(IdUtil.CreateUserId(username), persistent);
         }
 
         public void SignOut()

@@ -12,8 +12,11 @@ namespace RavenGallery.ViewModels
         public string Title { get; set; }
 
         [DisplayName("Tags")]
-        public string Tags { get; set; }
+        public string[] Tags { get; set; }
 
-
+        public ImageNewViewModel()
+        {
+            Tags = new string[] { };
+        }
     }
 }

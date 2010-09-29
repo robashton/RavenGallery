@@ -11,7 +11,11 @@ namespace RavenGallery.ViewModelBinders
     {
         public override ImageNewViewModel BindModel(System.Web.Mvc.ControllerContext controllerContext, System.Web.Mvc.ModelBindingContext bindingContext)
         {
-            throw new NotImplementedException();
+            return new ImageNewViewModel()
+            {
+                Title = bindingContext.ValueProvider.GetValue("Title").AttemptedValue,
+                Tags = bindingContext.ValueProvider.GetValue("Title").AttemptedValue.Split(',')
+            };
         }
     }
 }

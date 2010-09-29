@@ -85,6 +85,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -95,6 +97,7 @@
   <ItemGroup>
     <Compile Include="CommandHandlers\RegisterNewUserCommandHandlerTests.cs" />
     <Compile Include="CommandInvokerTests.cs" />
+    <Compile Include="Controllers\ImageControllerTests.cs" />
     <Compile Include="Controllers\UserControllerTests.cs" />
     <Compile Include="Entities\ImageEntityTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -102,7 +105,6 @@
     <Compile Include="Services\ImageUploaderServiceTests.cs" />
     <Compile Include="Validators\UserLogonViewModelValidatorTests.cs" />
     <Compile Include="Validators\UserRegisterViewModelValidatorTests.cs" />
-    <Compile Include="Web\GenericModelBinderTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RavenGallery.Core\RavenGallery.Core.csproj">
