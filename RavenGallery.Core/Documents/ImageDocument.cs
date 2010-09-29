@@ -30,11 +30,19 @@ namespace RavenGallery.Core.Documents
             get;
             set;
         }
+
+        public string Filename
+        {
+            get;
+            set;
+        }
         
         public List<ImageTagDocument> Tags
         {
             get;
             set;
         }
+
+        public ImageDocument() { Tags = new List<ImageTagDocument>(); }
     }
 }

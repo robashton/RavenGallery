@@ -9,13 +9,15 @@ namespace RavenGallery.Core.Entities
 {
     public class User : IEntity<UserDocument>
     {
-        private UserDocument innerUser;        
+        private UserDocument innerDocument;
+
+        public string UserId { get { return innerDocument.Id; } }
 
         public User(string username, string password)
         {
-            innerUser = new UserDocument()
+            innerDocument = new UserDocument()
             {
-                Id =string.Format("users/{0}", username),
+                Id = string.Format("users/{0}", username),
                 PasswordHash = HashUtil.HashPassword(password),
                 Username = username
             };
@@ -23,12 +25,12 @@ namespace RavenGallery.Core.Entities
 
         public User(UserDocument innerUser)
         {
-            this.innerUser = innerUser;
+            this.innerDocument = innerUser;
         }
 
         UserDocument IEntity<UserDocument>.GetInnerDocument()
         {
-            return innerUser;
+            return innerDocument;
         }
     }
 }

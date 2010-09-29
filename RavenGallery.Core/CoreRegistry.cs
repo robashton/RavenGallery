@@ -19,7 +19,7 @@ namespace RavenGallery.Core
                 s.With(new RegisterGenericTypes(typeof(IViewFactory<,>)));
                 s.With(new RegisterGenericTypes(typeof(ICommandHandler<>)));
                 s.With(new RegisterGenericTypes(typeof(IValidator<>)));
-                s.WithDefaultConventions();
+                s.With(new RegisterFirstInstanceOfInterface());
             });
 
             For<IDocumentStore>().Use(documentStore);

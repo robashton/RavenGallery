@@ -81,10 +81,14 @@
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="CommandHandlers\RegisterNewUserCommandHandler.cs" />
+    <Compile Include="CommandHandlers\UploadUserImageCommandHandler.cs" />
     <Compile Include="CommandInvoker.cs" />
     <Compile Include="Commands\RegisterNewUserCommand.cs" />
+    <Compile Include="Commands\UploadUserImageCommand.cs" />
+    <Compile Include="Conventions\RegisterFirstInstanceOfInterface.cs" />
     <Compile Include="Conventions\RegisterGenericTypes.cs" />
     <Compile Include="CoreRegistry.cs" />
+    <Compile Include="Documents\IDocument.cs" />
     <Compile Include="Documents\ImageTagDocument.cs" />
     <Compile Include="Documents\UserDocument.cs" />
     <Compile Include="Entities\IEntity.cs" />
@@ -103,6 +107,10 @@
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Security\AuthenticationService.cs" />
     <Compile Include="Security\IAuthenticationService.cs" />
+    <Compile Include="Infrastructure\RavenFileStorageService.cs" />
+    <Compile Include="Infrastructure\IFileStorageService.cs" />
+    <Compile Include="Services\IImageUploaderService.cs" />
+    <Compile Include="Services\ImageUploaderService.cs" />
     <Compile Include="Services\IUserService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="StructureMapControllerFactory.cs" />

@@ -10,18 +10,26 @@ namespace RavenGallery.Core.Entities
     {
         private ImageDocument innerDocument;
 
-        public Image(string ownerUserId, string title)
+        public string ImageId { get { return innerDocument.Id; } }
+        
+        public Image(User owner, string title, string filename)
         {
             innerDocument = new ImageDocument()
             {
                 DateUploaded = DateTime.Now,
-                OwnerUserId = ownerUserId,
-                Title = title
+                OwnerUserId = owner.UserId,
+                Title = title,
+                Filename = filename
             };
         }
 
         public Image(ImageDocument innerDocument){
             this.innerDocument = innerDocument;
+        }
+
+        public void AddTag(string tag)
+        {
+            innerDocument.Tags.Add(new ImageTagDocument() { Name = tag });
         }
 
         ImageDocument IEntity<ImageDocument>.GetInnerDocument()
