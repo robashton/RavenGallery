@@ -24,6 +24,20 @@ namespace RavenGallery.Core.Tests.Integration.Views
         }
 
         [Test]
+        [TestCase(0)]
+        [TestCase(21)]
+        public void WhenLoadIsInvokedWithInvalidPageSizePageSizeIsResetToSensibleDefault(int pageSize)
+        {
+            var results = this.ViewFactory.Load(new ImageBrowseInputModel()
+            {
+                Page = 0,
+                PageSize = pageSize
+            });
+
+            Assert.AreEqual(20, results.PageSize);
+        }
+
+        [Test]
         [TestCase(0, 10)]
         [TestCase(5, 10)]
         [TestCase(2, 5)]

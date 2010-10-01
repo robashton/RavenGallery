@@ -28,7 +28,7 @@ namespace RavenGallery.Core.Views
         public ImageBrowseView(int page, int pageSize, IEnumerable<ImageBrowseItem> items)
         {
             this.Page = page;
-            this.PageSize = PageSize;
+            this.PageSize = pageSize;
             this.Items = items;
         }
     }

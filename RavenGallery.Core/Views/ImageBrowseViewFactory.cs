@@ -18,7 +18,11 @@ namespace RavenGallery.Core.Views
 
         public ImageBrowseView Load(ImageBrowseInputModel input)
         {
+            // Adjust the model appropriately
+            input.PageSize = input.PageSize == 0 || input.PageSize > 20 ? 20 : input.PageSize;
+
             var items = documentSession.Query<ImageDocument>("Raven/DocumentsByEntityName")
+                .Customize(x=>x.Where("Tag:ImageDocuments"))
                 .Skip(input.Page * input.PageSize)
                 .Take(input.PageSize)
                 .ToArray()

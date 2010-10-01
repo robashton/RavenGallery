@@ -24,7 +24,7 @@ namespace RavenGallery.Core.Services
             string filename = String.Format("Images/{0}", Guid.NewGuid().ToString());
             fileStorageService.StoreFile(filename, data);
 
-            Image newImage = new Image(user, filename, title);
+            Image newImage = new Image(user, title,  filename);
             foreach (var tag in tags)
             {
                 newImage.AddTag(tag);

@@ -12,8 +12,8 @@
     <div class="image-browser">
         <%foreach(var item in Model.Items){ %>
         <div class="browsing-image">
-                <h4><%: item.Title  %></h4>
-                <img src="<%= Html.Action("Image", "Resources", new{ item.Filename }) %>" />
+                <h4><%: item.Title %></h4>
+                <img src="<%= this.ResolveUrl(String.Format("/Resources/Image/{0}", Url.Encode(item.Filename))) %>" alt="<%: item.Title %>" />
         </div>
         <%} %>
     </div>

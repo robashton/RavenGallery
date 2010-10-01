@@ -23,6 +23,11 @@ namespace RavenGallery
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                "Image",
+                "Resources/Image/{*filename}",
+                new { controller = "Resources",  action = "Image" });
+
+            routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults

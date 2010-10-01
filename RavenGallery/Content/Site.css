@@ -342,3 +342,8 @@ div#title
 {
     width: 6em;
 }
+
+div.image-browser { display: inline; }
+
+/* Image Browsing */
+div.browsing-image { display: inline; }

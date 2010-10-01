@@ -8,5 +8,7 @@ namespace RavenGallery.Core.Infrastructure
     public interface IFileStorageService
     {
         void StoreFile(string filename, Byte[] bytes);
+
+        byte[] RetrieveFile(string filename);
     }
 }

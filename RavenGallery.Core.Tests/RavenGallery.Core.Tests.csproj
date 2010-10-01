@@ -98,6 +98,7 @@
     <Compile Include="CommandHandlers\RegisterNewUserCommandHandlerTests.cs" />
     <Compile Include="CommandInvokerTests.cs" />
     <Compile Include="Controllers\ImageControllerTests.cs" />
+    <Compile Include="Controllers\ResourcesControllerTests.cs" />
     <Compile Include="Controllers\UserControllerTests.cs" />
     <Compile Include="Entities\ImageEntityTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

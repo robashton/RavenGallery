@@ -18,5 +18,11 @@ namespace RavenGallery.Core.Infrastructure
         {
             documentStore.DatabaseCommands.PutAttachment(filename, null, bytes, new Newtonsoft.Json.Linq.JObject());
         }
+
+        public byte[] RetrieveFile(string filename)
+        {
+            var file = documentStore.DatabaseCommands.GetAttachment(filename);
+            return file != null ? file.Data : null;
+        }
     }
 }
