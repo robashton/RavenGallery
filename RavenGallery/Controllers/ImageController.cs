@@ -7,6 +7,8 @@ using RavenGallery.ViewModels;
 using RavenGallery.Core;
 using RavenGallery.Core.Commands;
 using System.IO;
+using RavenGallery.Core.Views;
+using RavenGallery.Core.Web;
 
 namespace RavenGallery.Controllers
 {
@@ -14,10 +16,12 @@ namespace RavenGallery.Controllers
     public class ImageController : Controller
     {
         private ICommandInvoker commandInvoker;
+        private IViewRepository viewRepository;
 
-        public ImageController(ICommandInvoker commandInvoker)
+        public ImageController(ICommandInvoker commandInvoker, IViewRepository viewRepository)
         {
             this.commandInvoker = commandInvoker;
+            this.viewRepository = viewRepository;
         }
 
         [Authorize]
@@ -28,8 +32,9 @@ namespace RavenGallery.Controllers
         }
 
         [Authorize]
-        [HttpPost]
-        public ActionResult New(HttpPostedFileBase file, ImageNewViewModel model)
+        [UserIdFilter]
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult New(string currentUserId, HttpPostedFileBase file, ImageNewViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -37,7 +42,7 @@ namespace RavenGallery.Controllers
                 {
                     byte[] allData = new byte[file.ContentLength];
                     file.InputStream.Read(allData, 0, allData.Length);
-                    commandInvoker.Execute(new UploadUserImageCommand(User.Identity.Name, model.Title, model.Tags, allData));
+                    commandInvoker.Execute(new UploadUserImageCommand(currentUserId, model.Title, model.Tags, allData));
                     return RedirectToAction("Browse");
                 }
                 else
@@ -54,5 +59,9 @@ namespace RavenGallery.Controllers
             return View();
         }
 
+        public ActionResult Browse(ImageBrowseInputModel input)
+        {
+            throw new NotImplementedException();
+        }
    }
 }
