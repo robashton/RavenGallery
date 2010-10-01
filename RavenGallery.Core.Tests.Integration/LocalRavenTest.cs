@@ -7,6 +7,7 @@ using System.IO;
 using Raven.Client.Document;
 using Raven.Database;
 using NUnit.Framework;
+using System.Threading;
 
 namespace RavenGallery.Core.Tests.Integration
 {
@@ -33,6 +34,14 @@ namespace RavenGallery.Core.Tests.Integration
 
             };
             store.Initialize();
+        }
+
+        public void WaitForIndexing()
+        {
+            while (store.DocumentDatabase.Statistics.StaleIndexes.Length > 0)
+            {
+                Thread.Sleep(100);
+            }
         }
 
         [TearDown]

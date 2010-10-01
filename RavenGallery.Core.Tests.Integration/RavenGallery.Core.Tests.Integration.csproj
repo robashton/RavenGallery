@@ -89,6 +89,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LocalRavenTest.cs" />
     <Compile Include="Services\UserServiceTests.cs" />
+    <Compile Include="Views\ImageBrowseViewFactoryTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RavenGallery.Core\RavenGallery.Core.csproj">

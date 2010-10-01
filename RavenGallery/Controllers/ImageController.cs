@@ -54,10 +54,5 @@ namespace RavenGallery.Controllers
             return View();
         }
 
-        [Authorize]
-        public ActionResult Browse()
-        {
-            return View();
-        }
-    }
+   }
 }
