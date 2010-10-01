@@ -105,6 +105,7 @@
     <Compile Include="Services\ImageUploaderServiceTests.cs" />
     <Compile Include="Validators\UserLogonViewModelValidatorTests.cs" />
     <Compile Include="Validators\UserRegisterViewModelValidatorTests.cs" />
+    <Compile Include="ViewRepositoryTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RavenGallery.Core\RavenGallery.Core.csproj">

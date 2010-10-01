@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<ImageBrowseView>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Browse
@@ -6,6 +6,16 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Browse</h2>
+    <h2>Browse Images</h2>
+    <p>Page <%: Model.Page %>, showing <%: Model.PageSize %> items per page</p>
+    
+    <div class="image-browser">
+        <%foreach(var item in Model.Items){ %>
+        <div class="browsing-image">
+                <h4><%: item.Title  %></h4>
+                <img src="<%= Html.Action("Image", "Resources", new{ item.Filename }) %>" />
+        </div>
+        <%} %>
+    </div>
 
 </asp:Content>
