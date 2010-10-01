@@ -9,6 +9,8 @@ using System.Web;
 using RavenGallery.ViewModels;
 using RavenGallery.Core.Commands;
 using System.IO;
+using RavenGallery.Core.Views;
+using System.Web.Mvc;
 
 namespace RavenGallery.Core.Tests.Controllers
 {
@@ -61,6 +63,21 @@ namespace RavenGallery.Core.Tests.Controllers
             Controller.New("userId", postedFileMock.Object, new ImageNewViewModel());
 
             CommandInvokerMock.Verify(x => x.Execute(It.IsAny<UploadUserImageCommand>()), Times.Once()); 
+        }
+
+        [Test]
+        public void WhenBrowseIsExecutedViewModelIsReturned()
+        {
+            var input = new ImageBrowseInputModel(){
+               Page = 10,
+               PageSize = 100
+            };
+            var output = new ImageBrowseView(0, 100, new List<ImageBrowseItem>());
+            ViewRepositoryMock.Setup(x => x.Load<ImageBrowseInputModel, ImageBrowseView>(input)).Returns(output);
+
+            var result = Controller.Browse(input) as ViewResult;
+
+            Assert.AreEqual(output, result.ViewData.Model);            
         }
     }
 }

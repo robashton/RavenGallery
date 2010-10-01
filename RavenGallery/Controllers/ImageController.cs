@@ -61,7 +61,8 @@ namespace RavenGallery.Controllers
 
         public ActionResult Browse(ImageBrowseInputModel input)
         {
-            throw new NotImplementedException();
+            var model = viewRepository.Load<ImageBrowseInputModel, ImageBrowseView>(input);
+            return View(model);
         }
    }
 }
