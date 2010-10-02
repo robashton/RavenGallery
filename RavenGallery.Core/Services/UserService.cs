@@ -21,7 +21,7 @@ namespace RavenGallery.Core.Services
         public bool DoesUserExistWithUsername(string username)
         {
             return documentSession.Query<UserDocument,Users_ByUsername>()
-                .Where(x => x.Username == username)
+                .Where(x => x.Username == username.ToLowerInvariant())
                 .Any();
         }
 
@@ -29,7 +29,7 @@ namespace RavenGallery.Core.Services
         {
             String hashedPass = HashUtil.HashPassword(password);
             return documentSession.Query<UserDocument, Users_ByUsernameAndPassword>()
-                .Where(x => x.Username == username && x.PasswordHash == hashedPass)
+                .Where(x => x.Username == username.ToLowerInvariant() && x.PasswordHash == hashedPass)
                 .Any();
         }
     }

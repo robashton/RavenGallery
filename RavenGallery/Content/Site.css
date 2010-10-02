@@ -344,7 +344,7 @@ div#title
     width: 6em;
 }
 
-div.image-browser { }
+#image-browser { }
 
 /* Image Browsing */
 div.browsing-image { float: left; margin-left: 10px; background-color: #FFFFEE; }

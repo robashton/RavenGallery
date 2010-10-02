@@ -38,6 +38,21 @@ namespace RavenGallery.Core.Tests.Integration.Views
         }
 
         [Test]
+        public void WhenLoadIsInvokedWithTagSearch_ExpectedResultsAreReturned()
+        {
+            PopulateStore();
+            var result = this.ViewFactory.Load(new ImageBrowseInputModel()
+            {
+                Page = 0,
+                PageSize = 100,
+                SearchText = "tag5"
+            }).Items.FirstOrDefault();
+            WaitForIndexing();
+
+            Assert.AreEqual("Title5", result.Title);
+        }
+
+        [Test]
         [TestCase(0, 10)]
         [TestCase(5, 10)]
         [TestCase(2, 5)]
@@ -67,7 +82,13 @@ namespace RavenGallery.Core.Tests.Integration.Views
                     new ImageDocument()
                     {
                         Title = string.Format("Title{0}", x),
-                        Filename = string.Format("Filename{0}", x)
+                        Filename = string.Format("Filename{0}", x),
+                        Tags = new List<ImageTagDocument>()
+                        {
+                             new ImageTagDocument(){
+                                 Name = string.Format("tag{0}", x)
+                             }
+                        }
                     });
             }
             DocumentSession.SaveChanges();

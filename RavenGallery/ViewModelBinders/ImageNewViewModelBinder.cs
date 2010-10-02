@@ -14,7 +14,7 @@ namespace RavenGallery.ViewModelBinders
             return new ImageNewViewModel()
             {
                 Title = bindingContext.ValueProvider.GetValue("Title").AttemptedValue,
-                Tags = bindingContext.ValueProvider.GetValue("Title").AttemptedValue.Split(',')
+                Tags = bindingContext.ValueProvider.GetValue("Tags").AttemptedValue.Split(',')
             };
         }
     }

@@ -9,5 +9,6 @@ namespace RavenGallery.Core.Views
     {
         public int Page { get; set; }
         public int PageSize { get; set; }
+        public string SearchText { get; set; }
     }
 }

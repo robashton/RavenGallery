@@ -59,10 +59,15 @@ namespace RavenGallery.Controllers
             return View();
         }
 
-        public ActionResult Browse(ImageBrowseInputModel input)
+        public ActionResult Browse()
+        {
+            return View();
+        }
+
+        public ActionResult _GetBrowseData(ImageBrowseInputModel input)
         {
             var model = viewRepository.Load<ImageBrowseInputModel, ImageBrowseView>(input);
-            return View(model);
+            return Json(model, JsonRequestBehavior.AllowGet);
         }
    }
 }

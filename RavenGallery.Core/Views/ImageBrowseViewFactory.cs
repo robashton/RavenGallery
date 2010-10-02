@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Raven.Client;
 using RavenGallery.Core.Documents;
+using RavenGallery.Core.Indexes;
 
 namespace RavenGallery.Core.Views
 {
@@ -21,10 +22,18 @@ namespace RavenGallery.Core.Views
             // Adjust the model appropriately
             input.PageSize = input.PageSize == 0 || input.PageSize > 20 ? 20 : input.PageSize;
 
-            var items = documentSession.Query<ImageDocument>("Raven/DocumentsByEntityName")
-                .Customize(x=>x.Where("Tag:ImageDocuments"))
-                .Skip(input.Page * input.PageSize)
-                .Take(input.PageSize)
+            // Perform the paged query
+            var query = documentSession.Query<ImageDocument, Images_ByTag>()
+                    .Skip(input.Page * input.PageSize)
+                    .Take(input.PageSize);
+
+            // Add a clause for search text if necessary
+            if(!string.IsNullOrEmpty(input.SearchText)){
+                query = query.Where(x=>x.Tags.Any(tag=>tag.Name == input.SearchText));
+            }
+
+            // And enact this query
+            var items = query              
                 .ToArray()
                 .Select(x => new ImageBrowseItem(x.Title, x.Filename));
                

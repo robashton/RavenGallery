@@ -1,29 +1,20 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<ImageBrowseView>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-	Browse
+    Browse Images
 </asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
     <h2>Browse Images</h2>
-    <p>Page <%: Model.Page %>, showing <%: Model.PageSize %> items per page</p>
 
-    <form method="post">
-        
-        <input type="submit" />
-    </form>
+    <label for="searchText">Search</label> <input type="text" id="searchText" name="searchText" />
 
-   
-    
-    
-    <div class="image-browser">
-        <%foreach(var item in Model.Items){ %>
+    <script id="browsing-image-template" type="text/x-jquery-tmpl">
         <div class="browsing-image">
-                <h4><%: item.Title %></h4>
-                <img src="<%= this.ResolveUrl(String.Format("/Resources/Image/{0}", Url.Encode(item.Filename))) %>" alt="<%: item.Title %>" />
-        </div>
-        <%} %>
+             <h4>${Title}</h4>
+             <img src="/Resources/Image/${Filename}" alt={Title}" />
+        </div>    
+    </script>
+    <div id="image-browser">
     </div>
 
 </asp:Content>

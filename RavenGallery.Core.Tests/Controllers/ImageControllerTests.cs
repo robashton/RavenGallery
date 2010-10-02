@@ -66,7 +66,7 @@ namespace RavenGallery.Core.Tests.Controllers
         }
 
         [Test]
-        public void WhenBrowseIsExecutedViewModelIsReturned()
+        public void When_GetBrowseDataIsExecutedJsonModelIsReturned()
         {
             var input = new ImageBrowseInputModel(){
                Page = 10,
@@ -75,9 +75,9 @@ namespace RavenGallery.Core.Tests.Controllers
             var output = new ImageBrowseView(0, 100, new List<ImageBrowseItem>());
             ViewRepositoryMock.Setup(x => x.Load<ImageBrowseInputModel, ImageBrowseView>(input)).Returns(output);
 
-            var result = Controller.Browse(input) as ViewResult;
+            var result = Controller._GetBrowseData(input) as JsonResult;
 
-            Assert.AreEqual(output, result.ViewData.Model);            
+            Assert.AreEqual(output, result.Data);            
         }
     }
 }

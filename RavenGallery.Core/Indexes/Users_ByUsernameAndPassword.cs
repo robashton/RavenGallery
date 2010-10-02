@@ -16,8 +16,8 @@ namespace RavenGallery.Core.Indexes
                 Map = docs => from doc in docs
                               select new
                               {
-                                  doc.Username,
-                                  doc.PasswordHash
+                                  Username = doc.Username.ToLowerInvariant(),
+                                  PasswordHash = doc.PasswordHash
                               }
             }
             .ToIndexDefinition(DocumentStore.Conventions);
