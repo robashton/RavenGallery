@@ -114,6 +114,7 @@ page width. Or, you can specify an exact pixel width. */
     padding: 30px 30px 15px 30px;
     background-color: #fff;
     margin-bottom: 30px;
+    min-height: 1024px;
     _height: 1px; /* only IE6 applies CSS properties starting with an underscore */
 }
 
@@ -343,7 +344,7 @@ div#title
     width: 6em;
 }
 
-div.image-browser { display: inline; }
+div.image-browser { }
 
 /* Image Browsing */
-div.browsing-image { display: inline; }
+div.browsing-image { float: left; margin-left: 10px; background-color: #FFFFEE; }

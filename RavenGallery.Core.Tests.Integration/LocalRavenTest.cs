@@ -8,6 +8,8 @@ using Raven.Client.Document;
 using Raven.Database;
 using NUnit.Framework;
 using System.Threading;
+using Raven.Client.Indexes;
+using RavenGallery.Core.Indexes;
 
 namespace RavenGallery.Core.Tests.Integration
 {
@@ -34,6 +36,7 @@ namespace RavenGallery.Core.Tests.Integration
 
             };
             store.Initialize();
+            IndexCreation.CreateIndexes(typeof(Users_ByUsername).Assembly, store);
         }
 
         public void WaitForIndexing()

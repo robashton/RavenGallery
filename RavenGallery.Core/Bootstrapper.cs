@@ -5,6 +5,8 @@ using System.Text;
 using StructureMap;
 using Raven.Client.Document;
 using Raven.Database;
+using Raven.Client.Indexes;
+using RavenGallery.Core.Indexes;
 
 namespace RavenGallery.Core
 {
@@ -25,6 +27,9 @@ namespace RavenGallery.Core
             {
                 config.AddRegistry(new CoreRegistry(documentStore));
             });
+
+
+            IndexCreation.CreateIndexes(typeof(Users_ByUsername).Assembly, documentStore);
         }
     }
 }

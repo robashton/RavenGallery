@@ -68,6 +68,7 @@
       <HintPath>..\_Libs\StructureMap\StructureMap.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
@@ -98,6 +99,8 @@
     <Compile Include="ICommandHandler.cs" />
     <Compile Include="ICommandInvoker.cs" />
     <Compile Include="IEntityRepository.cs" />
+    <Compile Include="Indexes\Users_ByUsername.cs" />
+    <Compile Include="Indexes\Users_ByUsernameAndPassword.cs" />
     <Compile Include="IViewFactory.cs" />
     <Compile Include="IViewRepository.cs" />
     <Compile Include="Repositories\EntityRepository.cs" />

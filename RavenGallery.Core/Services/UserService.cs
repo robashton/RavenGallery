@@ -5,6 +5,7 @@ using System.Text;
 using Raven.Client;
 using RavenGallery.Core.Documents;
 using RavenGallery.Core.Utility;
+using RavenGallery.Core.Indexes;
 
 namespace RavenGallery.Core.Services
 {
@@ -19,7 +20,7 @@ namespace RavenGallery.Core.Services
 
         public bool DoesUserExistWithUsername(string username)
         {
-            return documentSession.DynamicQuery<UserDocument>()
+            return documentSession.Query<UserDocument,Users_ByUsername>()
                 .Where(x => x.Username == username)
                 .Any();
         }
@@ -27,7 +28,7 @@ namespace RavenGallery.Core.Services
         public bool DoesUserExistWithUsernameAndPassword(string username, string password)
         {
             String hashedPass = HashUtil.HashPassword(password);
-            return documentSession.DynamicQuery<UserDocument>()
+            return documentSession.Query<UserDocument, Users_ByUsernameAndPassword>()
                 .Where(x => x.Username == username && x.PasswordHash == hashedPass)
                 .Any();
         }

@@ -8,6 +8,14 @@
 
     <h2>Browse Images</h2>
     <p>Page <%: Model.Page %>, showing <%: Model.PageSize %> items per page</p>
+
+    <form method="post">
+        
+        <input type="submit" />
+    </form>
+
+   
+    
     
     <div class="image-browser">
         <%foreach(var item in Model.Items){ %>

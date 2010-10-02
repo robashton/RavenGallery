@@ -23,6 +23,7 @@ namespace RavenGallery.Core.Tests.Integration.Services
                     Username = "testUser"
                 });
                 session.SaveChanges();
+                WaitForIndexing();
 
                 UserService service = new UserService(session);
                 bool result = service.DoesUserExistWithUsernameAndPassword("testUser", "password");
@@ -41,6 +42,7 @@ namespace RavenGallery.Core.Tests.Integration.Services
                     Username = "testUser"
                 });
                 session.SaveChanges();
+                WaitForIndexing();
 
                 UserService service = new UserService(session);
                 bool result = service.DoesUserExistWithUsernameAndPassword("testUser", "password2");
@@ -59,6 +61,7 @@ namespace RavenGallery.Core.Tests.Integration.Services
                      Username = "testUser"
                 });
                 session.SaveChanges();
+                WaitForIndexing();
 
                 UserService service = new UserService(session);
                 bool result = service.DoesUserExistWithUsername("testUser");
@@ -77,6 +80,7 @@ namespace RavenGallery.Core.Tests.Integration.Services
                     Username = "testUser"
                 });
                 session.SaveChanges();
+                WaitForIndexing();
 
                 UserService service = new UserService(session);
                 bool result = service.DoesUserExistWithUsername("testOtherUser");
