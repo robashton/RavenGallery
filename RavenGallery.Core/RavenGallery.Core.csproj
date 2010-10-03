@@ -100,6 +100,7 @@
     <Compile Include="ICommandInvoker.cs" />
     <Compile Include="IEntityRepository.cs" />
     <Compile Include="Indexes\Images_ByTag.cs" />
+    <Compile Include="Indexes\ImageTags_GroupByTagName.cs" />
     <Compile Include="Indexes\Users_ByUsername.cs" />
     <Compile Include="Indexes\Users_ByUsernameAndPassword.cs" />
     <Compile Include="IViewFactory.cs" />
@@ -126,6 +127,8 @@
     <Compile Include="Views\ImageBrowseItem.cs" />
     <Compile Include="Views\ImageBrowseView.cs" />
     <Compile Include="Views\ImageBrowseViewFactory.cs" />
+    <Compile Include="Views\ImageTagCollectionItem.cs" />
+    <Compile Include="Views\ImageTagCollectionView.cs" />
     <Compile Include="Web\GenericModelBinder.cs" />
     <Compile Include="Web\UserIdFilter.cs" />
   </ItemGroup>
