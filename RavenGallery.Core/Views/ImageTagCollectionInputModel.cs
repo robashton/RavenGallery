@@ -5,9 +5,8 @@ using System.Text;
 
 namespace RavenGallery.Core.Views
 {
-    public class ImageTagCollectionItem
+    public class ImageTagCollectionInputModel
     {
-        public string Name { get; set; }
-        public int Count { get; set; }
+        public string SearchText { get; set; }
     }
 }

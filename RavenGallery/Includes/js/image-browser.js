@@ -23,7 +23,23 @@ imageBrowser = {
 
         $("#searchText").autocomplete(
         {
-            source: [],
+            source: function( request, response ) {
+				$.ajax({
+					url: "/Image/_GetTags",
+					dataType: "json",
+					data: {
+						SearchText: request.term
+					},
+					success: function( data ) {
+						response( $.map( data.Items, function( item ) {
+							return {
+								label: item.Name,
+								value: item.Name
+							}
+						}));
+					}
+				});
+			},
             search: function () {
                     imageBrowser.populateImageBrowser(
                     getParameterByName('page'),

@@ -69,5 +69,11 @@ namespace RavenGallery.Controllers
             var model = viewRepository.Load<ImageBrowseInputModel, ImageBrowseView>(input);
             return Json(model, JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult _GetTags(ImageTagCollectionInputModel input)
+        {
+            var model = viewRepository.Load<ImageTagCollectionInputModel, ImageTagCollectionView>(input);
+            return Json(model, JsonRequestBehavior.AllowGet);
+        }
    }
 }

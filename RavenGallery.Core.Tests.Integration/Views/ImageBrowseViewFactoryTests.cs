@@ -7,6 +7,7 @@ using RavenGallery.Core.Views;
 using Raven.Client;
 using RavenGallery.Core.Entities;
 using RavenGallery.Core.Documents;
+using Raven.Client.Indexes;
 
 namespace RavenGallery.Core.Tests.Integration.Views
 {

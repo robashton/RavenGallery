@@ -66,6 +66,21 @@ namespace RavenGallery.Core.Tests.Controllers
         }
 
         [Test]
+        public void When_GetTagsIsExecutedJsonModelIsReturned()
+        {
+            var input = new ImageTagCollectionInputModel()
+            {
+                SearchText = "text"
+            };
+            var output = new ImageTagCollectionView(new List<ImageTagCollectionItem>());
+            ViewRepositoryMock.Setup(x => x.Load<ImageTagCollectionInputModel, ImageTagCollectionView>(input)).Returns(output);
+
+            var result = Controller._GetTags(input) as JsonResult;
+
+            Assert.AreEqual(output, result.Data);
+        }
+
+        [Test]
         public void When_GetBrowseDataIsExecutedJsonModelIsReturned()
         {
             var input = new ImageBrowseInputModel(){

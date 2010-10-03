@@ -91,6 +91,7 @@
     <Compile Include="LocalRavenTest.cs" />
     <Compile Include="Services\UserServiceTests.cs" />
     <Compile Include="Views\ImageBrowseViewFactoryTests.cs" />
+    <Compile Include="Views\ImageTagCollectionViewFactoryTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RavenGallery.Core\RavenGallery.Core.csproj">

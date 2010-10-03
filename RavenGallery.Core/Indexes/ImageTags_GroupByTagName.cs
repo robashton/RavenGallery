@@ -28,7 +28,7 @@ namespace RavenGallery.Core.Indexes
                                      Name = g.Key,
                                      Count = g.Count()
                                  },
-                Indexes = {{x=>x.Name, FieldIndexing.Analyzed}}
+             Indexes = {{x=>x.Name, FieldIndexing.Analyzed}}
 
             }.ToIndexDefinition(this.DocumentStore.Conventions);
         }
