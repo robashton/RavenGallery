@@ -39,18 +39,20 @@ namespace RavenGallery.Core.Tests.Integration.Views
         }
 
         [Test]
-        public void WhenLoadIsInvokedWithTagSearch_ExpectedResultsAreReturned()
+       // [TestCase("Title", 100)]
+        [TestCase("tag5", 1)]
+        public void WhenLoadIsInvokedWithSearch_ExpectedResultsAreReturned(string searchText, int count)
         {
             PopulateStore();
             var result = this.ViewFactory.Load(new ImageBrowseInputModel()
             {
                 Page = 0,
                 PageSize = 100,
-                SearchText = "tag5"
-            }).Items.FirstOrDefault();
+                SearchText = searchText
+            }).Items.Count();
             WaitForIndexing();
 
-            Assert.AreEqual("Title5", result.Title);
+            Assert.AreEqual(count, result);
         }
 
         [Test]
@@ -83,7 +85,7 @@ namespace RavenGallery.Core.Tests.Integration.Views
                     new ImageDocument()
                     {
                         Title = string.Format("Title{0}", x),
-                        Filename = string.Format("Filename{0}", x),
+                        Filename = string.Format("Filename{0}", x),                        
                         Tags = new List<ImageTagDocument>()
                         {
                              new ImageTagDocument(){

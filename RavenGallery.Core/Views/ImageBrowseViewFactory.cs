@@ -27,9 +27,9 @@ namespace RavenGallery.Core.Views
                     .Skip(input.Page * input.PageSize)
                     .Take(input.PageSize);
 
-            // Add a clause for search text if necessary
-            if(!string.IsNullOrEmpty(input.SearchText)){
-                query = query.Where(x=>x.Tags.Any(tag=>tag.Name == input.SearchText));
+            if (!string.IsNullOrEmpty(input.SearchText))
+            {
+                query = query.Where(x => x.Tags.Any(y => y.Name == input.SearchText));
             }
 
             // And enact this query
@@ -40,6 +40,7 @@ namespace RavenGallery.Core.Views
             return new ImageBrowseView(
                 input.Page,
                 input.PageSize,
+                input.SearchText,
                 items);
         }
     }

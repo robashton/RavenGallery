@@ -87,7 +87,7 @@ namespace RavenGallery.Core.Tests.Controllers
                Page = 10,
                PageSize = 100
             };
-            var output = new ImageBrowseView(0, 100, new List<ImageBrowseItem>());
+            var output = new ImageBrowseView(0, 100, "", new List<ImageBrowseItem>());
             ViewRepositoryMock.Setup(x => x.Load<ImageBrowseInputModel, ImageBrowseView>(input)).Returns(output);
 
             var result = Controller._GetBrowseData(input) as JsonResult;

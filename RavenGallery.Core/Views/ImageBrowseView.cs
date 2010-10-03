@@ -19,17 +19,24 @@ namespace RavenGallery.Core.Views
             private set;
         }
 
+        public string SearchText
+        {
+            get;
+            private set;
+        }
+
         public IEnumerable<ImageBrowseItem> Items
         {
             get;
             private set;
         }
 
-        public ImageBrowseView(int page, int pageSize, IEnumerable<ImageBrowseItem> items)
+        public ImageBrowseView(int page, int pageSize, string searchText, IEnumerable<ImageBrowseItem> items)
         {
             this.Page = page;
             this.PageSize = pageSize;
             this.Items = items;
+            this.SearchText = searchText;
         }
     }
 }
