@@ -39,8 +39,9 @@ namespace RavenGallery.Core.Tests.Integration.Views
         }
 
         [Test]
-       // [TestCase("Title", 100)]
-        [TestCase("tag5", 1)]
+        [TestCase("Title", 20)]
+        [TestCase("Title5", 11)] // 5 and 50,51,52,53 etc
+        [TestCase("tag5", 11)]   // Ditto above
         public void WhenLoadIsInvokedWithSearch_ExpectedResultsAreReturned(string searchText, int count)
         {
             PopulateStore();

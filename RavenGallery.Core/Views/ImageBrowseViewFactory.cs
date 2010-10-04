@@ -21,15 +21,15 @@ namespace RavenGallery.Core.Views
         {
             // Adjust the model appropriately
             input.PageSize = input.PageSize == 0 || input.PageSize > 20 ? 20 : input.PageSize;
-
+            
             // Perform the paged query
-            var query = documentSession.Query<ImageDocument, Images_ByTag>()
+            var query = documentSession.LuceneQuery<ImageDocument, Images_BySearchText>()
                     .Skip(input.Page * input.PageSize)
                     .Take(input.PageSize);
 
             if (!string.IsNullOrEmpty(input.SearchText))
             {
-                query = query.Where(x => x.Tags.Any(y => y.Name == input.SearchText));
+                query.Where(String.Format("Title:{0}* OR Name:{0}*", input.SearchText));
             }
 
             // And enact this query
