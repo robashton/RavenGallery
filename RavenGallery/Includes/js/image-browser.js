@@ -19,8 +19,6 @@ imageBrowser = {
             getParameterByName('pageSize'),
             getParameterByName('searchTerm'));
 
-        // $('#tabs').tabs();
-
         $("#searchText").autocomplete(
         {
             source: function( request, response ) {
@@ -41,6 +39,12 @@ imageBrowser = {
 					}
 				});
 			},
+            select: function(event, ui){
+                    imageBrowser.populateImageBrowser(
+                    getParameterByName('page'),
+                    getParameterByName('pageSize'),
+                    ui.item.value);
+            },
             minLength: 0,
             search: function () {
                     imageBrowser.populateImageBrowser(

@@ -29,8 +29,14 @@
             
                 <ul id="menu">              
                     <li><%: Html.ActionLink("Home", "Index", "Home")%></li>
+                     <li><%: Html.ActionLink("Browse", "Browse", "Image")%></li>
+
+                      <% if (Request.IsAuthenticated) {%>
+                        <li><%: Html.ActionLink("Upload", "New", "Image")%></li>
+                      <%}%>
+
                 </ul>
-            
+                       
             </div>
         </div>
 
