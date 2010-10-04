@@ -13,27 +13,35 @@ namespace RavenGallery.Core.Indexes
     {
         public override Raven.Database.Indexing.IndexDefinition CreateIndexDefinition()
         {
-            return new IndexDefinition<ImageDocument, ReduceResult>()
+            return new IndexDefinition<ImageDocument, IndexResult>()
             {
                 Map = docs => from doc in docs
                               from tag in doc.Tags
                               select new
                               {
                                   doc.Title,
+                                  doc.Filename,
                                   tag.Name
                               },
                 Indexes = {
                     { x=> x.Title, FieldIndexing.Analyzed },
                     { x => x.Name, FieldIndexing.Analyzed },
+                    { x => x.Filename, FieldIndexing.No },
+                },
+                Stores =
+                {
+                    { x=> x.Title, FieldStorage.Yes },
+                    { x=> x.Filename, FieldStorage.Yes },
                 }
             }
             .ToIndexDefinition(DocumentStore.Conventions);
         }
 
-        private class ReduceResult
+        private class IndexResult
         {
             public string Title { get; set; }
             public string Name { get; set; }
+            public string Filename { get; set;}
         }
     }
 }
