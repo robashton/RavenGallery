@@ -16,13 +16,13 @@ namespace RavenGallery.Core.Indexes
             return new IndexDefinition<ImageDocument, IndexResult>()
             {
                 Map = docs => from doc in docs
-                              from tag in doc.Tags
-                              select new
-                              {
-                                  doc.Title,
-                                  doc.Filename,
-                                  tag.Name
-                              },
+                                from tag in doc.Tags
+                                select new
+                                {
+                                    doc.Title,
+                                    doc.Filename,
+                                    tag.Name
+                                },
                 Indexes = {
                     { x=> x.Title, FieldIndexing.Analyzed },
                     { x => x.Name, FieldIndexing.Analyzed },
