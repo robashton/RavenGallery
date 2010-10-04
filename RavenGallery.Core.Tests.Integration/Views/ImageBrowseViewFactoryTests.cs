@@ -57,6 +57,37 @@ namespace RavenGallery.Core.Tests.Integration.Views
         }
 
         [Test]
+        public void WhenLoadIsInvoked_OnlyOneResultPerDocumentShouldBeReturned()
+        {
+            DocumentSession.Store(
+                  new ImageDocument()
+                  {
+                      Id = "Test",
+                      Tags = new List<ImageTagDocument>()
+                        {
+                             new ImageTagDocument(){
+                                 Name = "Tag2"
+                             },
+                             new ImageTagDocument(){
+                                 Name = "Tag1"
+                             },
+                        }
+                  });
+            DocumentSession.SaveChanges();
+            WaitForIndexing();
+
+            var result = this.ViewFactory.Load(new ImageBrowseInputModel()
+            {
+                Page = 0,
+                PageSize = 100,
+                SearchText = string.Empty
+            }).Items.Count();
+    
+            Assert.AreEqual(1, result);
+        }
+
+
+        [Test]
         [TestCase(0, 10)]
         [TestCase(5, 10)]
         [TestCase(2, 5)]

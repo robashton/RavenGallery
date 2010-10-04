@@ -16,13 +16,23 @@ namespace RavenGallery.Core.Indexes
             return new IndexDefinition<ImageDocument, IndexResult>()
             {
                 Map = docs => from doc in docs
-                                from tag in doc.Tags
-                                select new
-                                {
+                              from tag in doc.Tags
+                              select new
+                              {
+                                    Unique = doc.Id,
                                     doc.Title,
                                     doc.Filename,
                                     tag.Name
-                                },
+                              },
+                Reduce = results=> from result in results
+                                   group result by result.Unique into g
+                                   select new
+                                   {
+                                       Unique = g.Key,
+                                       Title = g.FirstOrDefault().Title,
+                                       Filename = g.FirstOrDefault().Filename,
+                                       Name = g.Select(x=>x.Name).ToArray()
+                                   },
                 Indexes = {
                     { x=> x.Title, FieldIndexing.Analyzed },
                     { x => x.Name, FieldIndexing.Analyzed },
@@ -39,6 +49,7 @@ namespace RavenGallery.Core.Indexes
 
         private class IndexResult
         {
+            public string Unique { get; set; }
             public string Title { get; set; }
             public string Name { get; set; }
             public string Filename { get; set;}

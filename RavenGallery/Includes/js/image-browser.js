@@ -24,6 +24,7 @@ imageBrowser = {
         $("#searchText").autocomplete(
         {
             source: function( request, response ) {
+                if(request.term.length < 1) { return []; }
 				$.ajax({
 					url: "/Image/_GetTags",
 					dataType: "json",
@@ -40,6 +41,7 @@ imageBrowser = {
 					}
 				});
 			},
+            minLength: 0,
             search: function () {
                     imageBrowser.populateImageBrowser(
                     getParameterByName('page'),
