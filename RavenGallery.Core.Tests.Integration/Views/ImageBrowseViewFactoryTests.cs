@@ -57,7 +57,9 @@ namespace RavenGallery.Core.Tests.Integration.Views
         }
 
         [Test]
-        public void WhenLoadIsInvoked_OnlyOneResultPerDocumentShouldBeReturned()
+        [TestCase("Tag2")]
+        [TestCase("Tag1")]
+        public void WhenLoadIsInvoked_OnlyOneResultPerDocumentShouldBeReturned(string searchText)
         {
             DocumentSession.Store(
                   new ImageDocument()
@@ -80,7 +82,7 @@ namespace RavenGallery.Core.Tests.Integration.Views
             {
                 Page = 0,
                 PageSize = 100,
-                SearchText = string.Empty
+                SearchText =  searchText
             }).Items.Count();
     
             Assert.AreEqual(1, result);

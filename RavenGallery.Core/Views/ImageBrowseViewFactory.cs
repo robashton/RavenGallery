@@ -29,7 +29,7 @@ namespace RavenGallery.Core.Views
 
             if (!string.IsNullOrEmpty(input.SearchText))
             {
-                query.Where(String.Format("Title:{0}* OR Name:{0}*", input.SearchText));
+                query.Where(String.Format("Title:{0}* OR Tags:{0}*", input.SearchText));
             }
 
             // And enact this query
