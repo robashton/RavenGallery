@@ -13,6 +13,5 @@ namespace RavenGallery.Controllers
         {
             return View();
         }
-
     }
 }

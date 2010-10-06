@@ -146,7 +146,6 @@
     <Content Include="Scripts\jquery.tmplPlus.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.js" />
-    <Content Include="Views\Image\Browse.aspx" />
     <Content Include="Views\Image\Edit.aspx" />
     <Content Include="Views\Image\New.aspx" />
     <Content Include="Views\User\SignIn.aspx" />
