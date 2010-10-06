@@ -49,11 +49,8 @@ namespace RavenGallery.Core.Tests.Integration.Views
         public void WhenLoadIsInvokedWithNoSearchText_ModelContainsItemsWithCorrectInstanceCounts(string searchTerm, int expectedCount)
         {
             PopulateData();
-            var results = ViewFactory.Load(new ImageTagCollectionInputModel());
-            
-            // TODO: This is actually compensating for a bug in the unstable fork of RavenDB
-            // And should be replaced with a case sensitive match when that has been repaired
-            var specificResult = results.Items.Where(x => String.Compare(x.Name, searchTerm, true) == 0).FirstOrDefault();
+            var results = ViewFactory.Load(new ImageTagCollectionInputModel());            
+            var specificResult = results.Items.Where(x => String.Compare(x.Name, searchTerm, false) == 0).FirstOrDefault();
             Assert.AreEqual(expectedCount, specificResult.Count);
         }
 

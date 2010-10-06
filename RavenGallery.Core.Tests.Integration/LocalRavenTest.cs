@@ -56,9 +56,17 @@ namespace RavenGallery.Core.Tests.Integration
 
         private void ClearPath()
         {
-
             if (Directory.Exists(path))
-                Directory.Delete(path, true);
+            {
+                foreach (var file in Directory.GetFiles(path))
+                {
+                    File.Delete(file);
+                }
+                foreach (var directory in Directory.GetDirectories(path))
+                {
+                    Directory.Delete(directory, true);
+                }
+            }
         }
     }
 }
