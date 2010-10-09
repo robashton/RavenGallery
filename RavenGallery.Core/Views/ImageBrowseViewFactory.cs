@@ -33,10 +33,10 @@ namespace RavenGallery.Core.Views
             }
 
             // And enact this query
-            var items = query.ToArray();
-            /*
+            // Arse, 
+            var items = query            
                 .Select(x=> new ImageBrowseItem(x.Title, x.Filename))
-                .ToArray(); */
+                .ToArray();
                
             return new ImageBrowseView(
                 input.Page,
