@@ -29,7 +29,7 @@ namespace RavenGallery.Core
             });
 
 
-            IndexCreation.CreateIndexes(typeof(Users_ByUsername).Assembly, documentStore);
+            IndexCreation.CreateIndexes(typeof(ImageTags_GroupByTagName).Assembly, documentStore);
         }
     }
 }

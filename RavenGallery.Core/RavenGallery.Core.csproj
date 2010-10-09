@@ -99,11 +99,7 @@
     <Compile Include="ICommandHandler.cs" />
     <Compile Include="ICommandInvoker.cs" />
     <Compile Include="IEntityRepository.cs" />
-    <Compile Include="Indexes\Images_BySearchText.cs" />
-    <Compile Include="Indexes\Images_ByTag.cs" />
     <Compile Include="Indexes\ImageTags_GroupByTagName.cs" />
-    <Compile Include="Indexes\Users_ByUsername.cs" />
-    <Compile Include="Indexes\Users_ByUsernameAndPassword.cs" />
     <Compile Include="IViewFactory.cs" />
     <Compile Include="IViewRepository.cs" />
     <Compile Include="Repositories\EntityRepository.cs" />

@@ -20,17 +20,17 @@ namespace RavenGallery.Core.Services
 
         public bool DoesUserExistWithUsername(string username)
         {
-            return documentSession.Query<UserDocument,Users_ByUsername>()
-                .Where(x => x.Username == username.ToLowerInvariant())
+            return documentSession.Query<UserDocument>()
+                .Where(x => x.Username == username)
                 .Any();
         }
 
         public bool DoesUserExistWithUsernameAndPassword(string username, string password)
         {
             String hashedPass = HashUtil.HashPassword(password);
-            return documentSession.Query<UserDocument, Users_ByUsernameAndPassword>()
-                .Where(x => x.Username == username.ToLowerInvariant() && x.PasswordHash == hashedPass)
+            return documentSession.Query<UserDocument>()
+                .Where(x => x.Username == username && x.PasswordHash == hashedPass)
                 .Any();
-        }
+        } 
     }
 }

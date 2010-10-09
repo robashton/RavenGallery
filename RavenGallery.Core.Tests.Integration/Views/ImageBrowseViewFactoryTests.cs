@@ -129,7 +129,7 @@ namespace RavenGallery.Core.Tests.Integration.Views
                     });
             }
             DocumentSession.SaveChanges();
-            DocumentSession.Clear();
+            DocumentSession.Advanced.Clear();
             WaitForIndexing();
         }
 

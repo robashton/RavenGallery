@@ -23,25 +23,26 @@ namespace RavenGallery.Core.Views
             input.PageSize = input.PageSize == 0 || input.PageSize > 20 ? 20 : input.PageSize;
             
             // Perform the paged query
-            var query = documentSession.LuceneQuery<ImageDocument, Images_BySearchText>()
+            var query = documentSession.Query<ImageDocument>()
                     .Skip(input.Page * input.PageSize)
                     .Take(input.PageSize);
 
             if (!string.IsNullOrEmpty(input.SearchText))
             {
-                query.Where(String.Format("Title:{0}* OR Tags:{0}*", input.SearchText));
+                query = query.Where(x => x.Title.StartsWith(input.SearchText) || x.Tags.Any(y => y.Name.StartsWith(input.SearchText)));
             }
 
             // And enact this query
-            var items = query
-                .SelectFields<ImageBrowseItem>("Title", "Filename")
-                .ToArray();
+            var items = query.ToArray();
+            /*
+                .Select(x=> new ImageBrowseItem(x.Title, x.Filename))
+                .ToArray(); */
                
             return new ImageBrowseView(
                 input.Page,
                 input.PageSize,
                 input.SearchText,
-                items);
+                items.Select(x=> new ImageBrowseItem(x.Title, x.Filename)));
         }
     }
 }

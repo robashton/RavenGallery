@@ -7,7 +7,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <h2>Upload Image</h2>
-    <form method="post" enctype="multipart/form-data">
+    <form action="/image/new" method="post" enctype="multipart/form-data">
 
         <ul>
             <li><%=Html.LabelFor(x=>x.Title) %> <%= Html.TextBoxFor(x=>x.Title) %> <%=Html.ValidationMessageFor(x=>x.Title) %></li>

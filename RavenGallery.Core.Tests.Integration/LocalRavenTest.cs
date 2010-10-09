@@ -10,6 +10,7 @@ using NUnit.Framework;
 using System.Threading;
 using Raven.Client.Indexes;
 using RavenGallery.Core.Indexes;
+using Raven.Database.Extensions;
 
 namespace RavenGallery.Core.Tests.Integration
 {
@@ -36,7 +37,7 @@ namespace RavenGallery.Core.Tests.Integration
 
             };
             store.Initialize();
-            IndexCreation.CreateIndexes(typeof(Users_ByUsername).Assembly, store);
+            IndexCreation.CreateIndexes(typeof(ImageTags_GroupByTagName).Assembly, store);
         }
 
         public void WaitForIndexing()
@@ -58,14 +59,7 @@ namespace RavenGallery.Core.Tests.Integration
         {
             if (Directory.Exists(path))
             {
-                foreach (var file in Directory.GetFiles(path))
-                {
-                    File.Delete(file);
-                }
-                foreach (var directory in Directory.GetDirectories(path))
-                {
-                    Directory.Delete(directory, true);
-                }
+                IOExtensions.DeleteDirectory(path);
             }
         }
     }

@@ -349,3 +349,4 @@ div#title
 /* Image Browsing */
 div.browsing-image { float: left; margin-left: 10px; background-color: #FFFFEE; border: 1px dotted #CCC; }
 div.browsing-image img { max-width: 75px;}
+div.browsing-image img:hover { max-width: 100px;}
