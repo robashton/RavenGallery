@@ -1,0 +1,12 @@
+﻿<viewdata model="ImageNewViewModel" />
+<content name="title">New</content>
+<h2>
+    Upload Image</h2>
+<form action="/image/new" method="post" enctype="multipart/form-data">
+<ul>
+    <li><Label For="Title" /> <TextBox For="Title" /><ValidationMessage For="Title" /></li>
+    <li><Label For="Tags" /> <TextBox Name="Tags" Items="Model.Tags" /><ValidationMessage For="Tags" /></li>
+    <li><Label Name="File" /><input type="file" name="File" /><ValidationMessage Message="File" /></li>
+</ul>
+<input type="submit" />
+</form>

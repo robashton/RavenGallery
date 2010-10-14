@@ -67,6 +67,12 @@
     <Reference Include="Raven.Storage.Esent">
       <HintPath>..\_Libs\RavenDB\Raven.Storage.Esent.dll</HintPath>
     </Reference>
+    <Reference Include="Spark">
+      <HintPath>..\_Libs\Spark\Spark.dll</HintPath>
+    </Reference>
+    <Reference Include="Spark.Web.Mvc">
+      <HintPath>..\_Libs\Spark\Spark.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Spatial.Net">
       <HintPath>..\_Libs\RavenDB\Spatial.Net.dll</HintPath>
     </Reference>
@@ -146,11 +152,12 @@
     <Content Include="Scripts\jquery.tmplPlus.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.js" />
-    <Content Include="Views\Image\View.aspx" />
-    <Content Include="Views\Image\New.aspx" />
-    <Content Include="Views\User\SignIn.aspx" />
-    <Content Include="Views\User\Register.aspx" />
-    <Content Include="Views\User\SignOut.aspx" />
+    <None Include="Views\Image\View.spark" />
+    <None Include="Views\Image\New.spark" />
+    <Content Include="Views\Bindings.xml" />
+    <None Include="Views\User\SignIn.spark" />
+    <None Include="Views\User\Register.spark" />
+    <None Include="Views\User\SignOut.spark" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -162,11 +169,12 @@
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Views\Home\Index.aspx" />
-    <Content Include="Views\Shared\Error.aspx" />
-    <Content Include="Views\Shared\LogOnUserControl.ascx" />
-    <Content Include="Views\Shared\Site.Master" />
+    <None Include="Views\Home\Index.spark" />
+    <None Include="Views\Shared\Error.spark" />
+    <None Include="Views\Shared\_LogOnUserControl.spark" />
     <Content Include="Views\Web.config" />
+    <None Include="Views\Shared\Application.spark" />
+    <None Include="Views\Shared\_global.spark" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

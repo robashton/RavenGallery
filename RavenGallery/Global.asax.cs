@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using RavenGallery.Core;
+using Spark;
+using Spark.Web.Mvc;
 using StructureMap;
 using FluentValidation.Attributes;
 using FluentValidation.Mvc;
@@ -25,7 +27,7 @@ namespace RavenGallery
             routes.MapRoute(
                 "Image",
                 "Resources/Image/{*filename}",
-                new { controller = "Resources",  action = "Image" });
+                new { controller = "Resources", action = "Image" });
 
             routes.MapRoute(
                 "Default", // Route name
@@ -39,12 +41,20 @@ namespace RavenGallery
         {
             AreaRegistration.RegisterAllAreas();
             RegisterRoutes(RouteTable.Routes);
+            RegisterViewEngine();
 
             ModelValidatorProviders.Providers.Add(
                 new FluentValidationModelValidatorProvider(new StructureMapValidatorFactory()));
             ControllerBuilder.Current.SetControllerFactory(new RavenGallery.Core.StructureMapControllerFactory());
             ModelBinders.Binders.DefaultBinder = new GenericBinderResolver();
             Bootstrapper.Startup();
+        }
+
+        private static void RegisterViewEngine()
+        {
+            ISparkSettings settings = new SparkSettings()
+                .SetAutomaticEncoding(true);
+            SparkEngineStarter.RegisterViewEngine(settings);
         }
 
         protected void Application_EndRequest()

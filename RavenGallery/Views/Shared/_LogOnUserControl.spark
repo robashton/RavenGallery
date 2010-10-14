@@ -1,0 +1,7 @@
+﻿<test if="Request.IsAuthenticated">
+    Welcome <b><UserName /></b>!
+    [ <a controller="User" action="SignOut">Sign Off</a> ]
+<else />
+    [ <a controller="User" action="SignIn">Sign In</a> ]
+    [ <a controller="User" action="Register">Register</a> ]
+</test>

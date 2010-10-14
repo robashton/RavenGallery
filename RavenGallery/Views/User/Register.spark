@@ -1,0 +1,21 @@
+﻿<viewdata model="UserRegisterViewModel" />
+<content name="title">Register</content>
+<h2>
+    Register</h2>
+<Form>
+    <ul>
+        <li>
+            <Label For="Username" />
+            <TextBox For="Username" />
+            <ValidationMessage For="Username" /></li>
+        <li>
+            <Label For="Password" />
+            <Password For="Password" />
+            <ValidationMessage For="Password" /></li>
+        <li>
+            <Label For="StayLoggedIn" />
+            <CheckBox For="StayLoggedIn"/>
+            <ValidationMessage For="StayLoggedIn" /></li>
+    </ul>
+    <input type="submit" />
+</Form>
