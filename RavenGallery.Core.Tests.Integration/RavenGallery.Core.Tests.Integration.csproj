@@ -67,6 +67,9 @@
     <Reference Include="Raven.Storage.Esent">
       <HintPath>..\_Libs\RavenDB\Raven.Storage.Esent.dll</HintPath>
     </Reference>
+    <Reference Include="Raven.Storage.Managed">
+      <HintPath>..\_Libs\RavenDB\Raven.Storage.Managed.dll</HintPath>
+    </Reference>
     <Reference Include="Spatial.Net">
       <HintPath>..\_Libs\RavenDB\Spatial.Net.dll</HintPath>
     </Reference>

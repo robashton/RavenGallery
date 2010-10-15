@@ -1,7 +1,6 @@
 ﻿<content name="title">Home Page</content>
 
-<h2>
-    The RavenDB Image Gallery</h2>
+<h2>The RavenDB Image Gallery</h2>
 <p>
     This is an example ASP.NET MVC application using RavenDB, MVC2, StructureMap, Moq
     and NUnit</p>

@@ -57,6 +57,25 @@ namespace RavenGallery.Core.Tests.Integration.Views
         }
 
         [Test]
+        public void WhenLoadIsInvokedNoOtherDocumentsAreReturned()
+        {
+            // NOTE: This test was because of a regression in the RavenDB source code on unstable fork
+            // Leaving it in for the future in case it comes back
+            this.DocumentSession.Store(new UserDocument());
+            this.DocumentSession.SaveChanges();
+
+            WaitForIndexing();
+            var result = this.ViewFactory.Load(new ImageBrowseInputModel()
+            {
+                Page = 0,
+                PageSize = 100,
+                SearchText = null
+            }).Items.Count();
+
+            Assert.AreEqual(0, result);
+        }
+
+        [Test]
         [TestCase("Tag2")]
         [TestCase("Tag1")]
         public void WhenLoadIsInvoked_OnlyOneResultPerDocumentShouldBeReturned(string searchText)

@@ -75,6 +75,9 @@
     <Reference Include="Raven.Storage.Esent">
       <HintPath>..\_Libs\RavenDB\Raven.Storage.Esent.dll</HintPath>
     </Reference>
+    <Reference Include="Raven.Storage.Managed">
+      <HintPath>..\_Libs\RavenDB\Raven.Storage.Managed.dll</HintPath>
+    </Reference>
     <Reference Include="Spatial.Net, Version=2.9.1.2, Culture=neutral, PublicKeyToken=02f879aa45933051, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\_Libs\RavenDB\Spatial.Net.dll</HintPath>
