@@ -32,9 +32,9 @@ namespace RavenGallery.Core.Tests.Integration
                 Configuration = new RavenConfiguration
                 {
                     DataDirectory = path,
-                    RunInUnreliableYetFastModeThatIsNotSuitableForProduction = true
+                    RunInUnreliableYetFastModeThatIsNotSuitableForProduction = true,
+                    RunInMemory = true
                 }
-
             };
             store.Initialize();
             IndexCreation.CreateIndexes(typeof(ImageTags_GroupByTagName).Assembly, store);
