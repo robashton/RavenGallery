@@ -9,14 +9,14 @@
     <script type="text/javascript" src="~/Scripts/jquery-1.4.2.min.js" />
     <script type="text/javascript" src="~/Scripts/jquery-ui-1.8.5.custom.min.js" />
     <script type="text/javascript" src="~/Scripts/jquery.tmpl.js" />
-    <script type="text/javascript" src="~/Includes/js/image-browser.js" />
+	<script type="text/javascript" src="~/Includes/js/global.js" />
+	<use content="scripts"></use>
 </head>
 <body>
     <div class="page">
         <div id="header">
             <div id="title">
-                <h1>
-                    RavenDB - Gallery Demo</h1>
+                <h1>RavenDB - Gallery Demo</h1>
             </div>
             <div id="logindisplay">
                 <LogOnUserControl />
@@ -37,5 +37,9 @@
             </div>
         </div>
     </div>
+
+	<script id="inline-editor" type="text/x-jquery-tmpl">
+		<input type="text" id="editor" value="{{= data }}" />  
+	</script>
 </body>
 </html>

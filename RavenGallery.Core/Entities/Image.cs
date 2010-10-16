@@ -22,9 +22,19 @@ namespace RavenGallery.Core.Entities
                 Filename = filename
             };
         }
+        
+        public void UpdateTitle(string title)
+        {
+            innerDocument.Title = title;
+        }
 
         public Image(ImageDocument innerDocument){
             this.innerDocument = innerDocument;
+        }
+
+        public void ClearTags()
+        {
+            innerDocument.Tags.Clear();
         }
 
         public void AddTag(string tag)

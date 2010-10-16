@@ -9,6 +9,7 @@ using RavenGallery.Core.Commands;
 using System.IO;
 using RavenGallery.Core.Views;
 using RavenGallery.Core.Web;
+using RavenGallery.InputModels;
 
 namespace RavenGallery.Controllers
 {
@@ -43,7 +44,7 @@ namespace RavenGallery.Controllers
                     byte[] allData = new byte[file.ContentLength];
                     file.InputStream.Read(allData, 0, allData.Length);
                     commandInvoker.Execute(new UploadUserImageCommand(currentUserId, model.Title, model.Tags, allData));
-                    return RedirectToAction("Browse");
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
@@ -53,10 +54,46 @@ namespace RavenGallery.Controllers
             return View(model);
         }
 
-        [Authorize]
-        public ActionResult Edit()
+        [ActionName("View")]
+        public ActionResult ViewImage()
         {
             return View();
+        }
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult _UpdateImageTitle(string imageId, UpdateImageTitleInput input)
+        {
+            if (ModelState.IsValid)
+            {
+                commandInvoker.Execute(new UpdateImageTitleCommand(
+                    imageId, input.Title));
+                return Json(new { Success = true });
+            }
+            else
+            {
+                return Json(new { Success = false });
+            }
+        }
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult _UpdateImageTags(string imageId, UpdateImageTagsInput input)
+        {
+            if (ModelState.IsValid)
+            {
+                commandInvoker.Execute(new UpdateImageTagsCommand(
+                    imageId, input.Tags));
+                return Json(new { Success = true });
+            }
+            else
+            {
+                return Json(new { Success = false });
+            }
+        }
+
+        public ActionResult _GetImage(ImageViewInputModel input)
+        {
+            var model = viewRepository.Load<ImageViewInputModel, ImageView>(input);
+            return Json(model, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult _GetBrowseData(ImageBrowseInputModel input)

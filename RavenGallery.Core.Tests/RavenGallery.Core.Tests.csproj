@@ -99,6 +99,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandHandlers\RegisterNewUserCommandHandlerTests.cs" />
+    <Compile Include="CommandHandlers\UpdateImageTagsCommandHandlerTests.cs" />
+    <Compile Include="CommandHandlers\UpdateImageTitleCommandHandlerTests.cs" />
     <Compile Include="CommandInvokerTests.cs" />
     <Compile Include="Controllers\ImageControllerTests.cs" />
     <Compile Include="Controllers\ResourcesControllerTests.cs" />

@@ -82,9 +82,13 @@
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="CommandHandlers\RegisterNewUserCommandHandler.cs" />
+    <Compile Include="CommandHandlers\UpdateImageTagsCommandHandler.cs" />
+    <Compile Include="CommandHandlers\UpdateImageTitleCommandHandler.cs" />
     <Compile Include="CommandHandlers\UploadUserImageCommandHandler.cs" />
     <Compile Include="CommandInvoker.cs" />
     <Compile Include="Commands\RegisterNewUserCommand.cs" />
+    <Compile Include="Commands\UpdateImageTagsCommand.cs" />
+    <Compile Include="Commands\UpdateImageTitleCommand.cs" />
     <Compile Include="Commands\UploadUserImageCommand.cs" />
     <Compile Include="Conventions\RegisterFirstInstanceOfInterface.cs" />
     <Compile Include="Conventions\RegisterGenericTypesOfInterface.cs" />
@@ -128,6 +132,9 @@
     <Compile Include="Views\ImageTagCollectionItem.cs" />
     <Compile Include="Views\ImageTagCollectionView.cs" />
     <Compile Include="Views\ImageTagCollectionViewFactory.cs" />
+    <Compile Include="Views\ImageViewInputModel.cs" />
+    <Compile Include="Views\ImageView.cs" />
+    <Compile Include="Views\ImageViewFactory.cs" />
     <Compile Include="Web\GenericModelBinder.cs" />
     <Compile Include="Web\UserIdFilter.cs" />
   </ItemGroup>

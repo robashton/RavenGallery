@@ -1,5 +1,7 @@
 ﻿<content name="title">Home Page</content>
-
+<content name="scripts">
+  <script type="text/javascript" src="~/Includes/js/image-browser.js" />  
+</content>
 <h2>The RavenDB Image Gallery</h2>
 <p>
     This is an example ASP.NET MVC application using RavenDB, MVC2, StructureMap, Moq
@@ -10,6 +12,7 @@
         <div class="browsing-image">
              <h4>{{= Title}}</h4>
              <img src="/Resources/Image/{{= Filename}}" alt="{{= Title}}" />
+            <a href="/Image/View?imageId={{= Id}}">View</a>
         </div>    
     </script>
 <div id="image-browser">
