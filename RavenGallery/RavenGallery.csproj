@@ -127,7 +127,7 @@
     <Compile Include="Validators\ImageNewViewModelValidator.cs" />
     <Compile Include="Validators\UserRegisterViewModelValidator.cs" />
     <Compile Include="Validators\UserSignInViewModelValidator.cs" />
-    <Compile Include="ViewModelBinders\ImageNewViewModelBinder.cs" />
+    <Compile Include="ViewModelBinders\CsvModelBinder.cs" />
     <Compile Include="ViewModels\ImageNewViewModel.cs" />
     <Compile Include="ViewModels\UserRegisterViewModel.cs" />
     <Compile Include="ViewModels\UserSignInViewModel.cs" />
@@ -155,6 +155,7 @@
     <Content Include="Scripts\jquery-1.4.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.5.custom.min.js" />
     <Content Include="Scripts\jquery.autocomplete.js" />
+    <Content Include="Scripts\jquery.jeditable.js" />
     <Content Include="Scripts\jquery.tmpl.js" />
     <Content Include="Scripts\jquery.tmplPlus.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />

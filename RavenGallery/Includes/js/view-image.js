@@ -1,9 +1,44 @@
 ﻿viewImage = {
+    imageId: '',
     initialize: function () {
-        var initialImageId = getParameterByName('imageId');
-        viewImage.updateView(initialImageId);
+        viewImage.imageId = getParameterByName('imageId');
+        viewImage.updateView(viewImage.imageId);
+    },
 
-        $('#Title').click(viewImage.Title_Clicked);
+    hookEvents: function () {
+        $('#image-title').editable(function (value, settings) {
+            $.ajax({
+                type: 'POST',
+                url: '/Image/_UpdateImageTitle?imageId=' + viewImage.imageId,
+                data: {
+                    Title: value
+                },
+                error: function (xhr, ajaxOptions) {
+                    alert('nay');
+                },
+                success: function (data) {
+
+                }
+            });
+            return value;
+        });
+        $('#image-tags').editable(function (value, settings) {
+            $.ajax({
+                type: 'POST',
+                url: '/Image/_UpdateImageTags?imageId=' + viewImage.imageId,
+                data: {
+                    Tags: value
+                },
+                error: function (xhr, ajaxOptions) {
+                    alert('nay');
+                },
+                success: function (data) {
+
+                }
+            });
+            return value;
+        });
+
     },
 
     updateView: function (imageId) {
@@ -15,16 +50,16 @@
             },
             success: function (data) {
                 $('#image-placeholder').html('');
-                $('#focused-image-template')
-                    .tmpl(data)
+
+                var tmpl = $('#focused-image-template').html();
+                $.template('template', tmpl);
+
+                $.tmpl('template', data)
                     .appendTo('#image-placeholder');
+                viewImage.hookEvents();
 
             }
         });
-    },
-
-    Title_Clicked: function () {
-        
     }
 };
 

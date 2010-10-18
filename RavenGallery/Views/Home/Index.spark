@@ -1,6 +1,6 @@
 ﻿<content name="title">Home Page</content>
 <content name="scripts">
-  <script type="text/javascript" src="~/Includes/js/image-browser.js" />  
+  <script type="text/javascript" src="~/Includes/js/image-browser.js" ></script>
 </content>
 <h2>The RavenDB Image Gallery</h2>
 <p>
@@ -11,9 +11,10 @@
 <script id="browsing-image-template" type="text/x-jquery-tmpl">
         <div class="browsing-image">
              <h4>{{= Title}}</h4>
-             <img src="/Resources/Image/{{= Filename}}" alt="{{= Title}}" />
-            <a href="/Image/View?imageId={{= Id}}">View</a>
-        </div>    
+          <img src="/Resources/Image/{{= Filename}}" alt="{{= Title}}" />
+          <a href="/Image/View?imageId={{= Id }}">Edit</a>
+        </div>
+    
     </script>
 <div id="image-browser">
 </div>

@@ -6,10 +6,11 @@
     </title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/jquery-ui-1.8.5.custom.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="~/Scripts/jquery-1.4.2.min.js" />
-    <script type="text/javascript" src="~/Scripts/jquery-ui-1.8.5.custom.min.js" />
-    <script type="text/javascript" src="~/Scripts/jquery.tmpl.js" />
-	<script type="text/javascript" src="~/Includes/js/global.js" />
+    <script type="text/javascript" src="~/Scripts/jquery-1.4.2.min.js" ></script>
+    <script type="text/javascript" src="~/Scripts/jquery-ui-1.8.5.custom.min.js" ></script>
+    <script type="text/javascript" src="~/Scripts/jquery.tmpl.js"></script>
+	<script type="text/javascript" src="~/Scripts/jquery.jeditable.js" ></script>
+	<script type="text/javascript" src="~/Includes/js/global.js" ></script>
 	<use content="scripts"></use>
 </head>
 <body>
@@ -37,9 +38,5 @@
             </div>
         </div>
     </div>
-
-	<script id="inline-editor" type="text/x-jquery-tmpl">
-		<input type="text" id="editor" value="{{= data }}" />  
-	</script>
 </body>
 </html>
