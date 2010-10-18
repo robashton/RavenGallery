@@ -9,7 +9,12 @@
         return decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
-function makeEditable(element, validator, onComplete)
-{
-    
+// NOTE: Stolen from StackOverflow: http://stackoverflow.com/questions/1219860/javascript-jquery-html-encoding
+// Utter. Genius.
+function htmlEncode(value) {
+    return $('<div/>').text(value).html();
+}
+
+function htmlDecode(value) {
+    return $('<div/>').html(value).text();
 }

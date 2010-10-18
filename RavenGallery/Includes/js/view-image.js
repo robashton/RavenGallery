@@ -20,7 +20,10 @@
 
                 }
             });
-            return value;
+            return htmlEncode(value);
+        },
+        {
+            data: function (value) { return htmlDecode(value); }
         });
         $('#image-tags').editable(function (value, settings) {
             $.ajax({
@@ -36,7 +39,10 @@
 
                 }
             });
-            return value;
+            return htmlEncode(value);
+        },
+        {
+            data: function (value) { return htmlDecode(value); } // 
         });
 
     },
