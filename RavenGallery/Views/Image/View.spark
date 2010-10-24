@@ -1,3 +1,16 @@
 ﻿<content name="title">View Image</content>
-<h2>
-    View Image</h2>
+<content name="scripts">
+  <script type="text/javascript" src="~/Includes/js/view-image.js" ></script>
+</content>
+
+<script id="focused-image-template" type="text/x-jquery-tmpl">
+  <div class="focused-image">
+    <div id='image-title'>{{= Title}}</div>
+    <img src="/Resources/Image/{{= Filename}}" alt="{{= Title}}" />
+    <span id="image-tags">{{= Tags }}</span>
+  </div>
+</script>
+
+<div id="image-placeholder">
+    
+</div>

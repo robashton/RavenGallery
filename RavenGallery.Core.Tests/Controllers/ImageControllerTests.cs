@@ -11,6 +11,7 @@ using RavenGallery.Core.Commands;
 using System.IO;
 using RavenGallery.Core.Views;
 using System.Web.Mvc;
+using RavenGallery.InputModels;
 
 namespace RavenGallery.Core.Tests.Controllers
 {
@@ -81,6 +82,21 @@ namespace RavenGallery.Core.Tests.Controllers
         }
 
         [Test]
+        public void When_GetImageIsExecutedJsonModelIsReturned()
+        {
+            var input = new ImageViewInputModel()
+            {
+                 ImageId = "someId"
+            };
+            var output = new ImageView("", null, "");
+            ViewRepositoryMock.Setup(x => x.Load<ImageViewInputModel, ImageView>(input))
+                .Returns(output);
+
+            var result = Controller._GetImage(input) as JsonResult;
+            Assert.AreEqual(output, result.Data);
+        }
+
+        [Test]
         public void When_GetBrowseDataIsExecutedJsonModelIsReturned()
         {
             var input = new ImageBrowseInputModel(){
@@ -93,6 +109,49 @@ namespace RavenGallery.Core.Tests.Controllers
             var result = Controller._GetBrowseData(input) as JsonResult;
 
             Assert.AreEqual(output, result.Data);            
+        }
+
+        [Test]
+        public void When_UpdateImageTagsIsExecutedWithValidModel_CommandIsSent()
+        {
+            var input = new UpdateImageTagsInput()
+            {
+                 Tags = new[] { "1", "2" }
+            };
+            Controller._UpdateImageTags("imageId", input);
+            CommandInvokerMock.Verify(x => x.Execute(It.Is<UpdateImageTagsCommand>(
+                y => y.Tags[0] == "1" && y.Tags[1] == "2" && y.ImageId == "imageId")), 
+                    Times.Once());
+        }
+
+        [Test]
+        public void WhenUpdateImageTagsIsExecutedWithInvalidModel_CommandIsNotSent()
+        {
+            Controller.ModelState.AddModelError("whatever", "something");
+            Controller._UpdateImageTags("imageId", new UpdateImageTagsInput());
+            CommandInvokerMock.Verify(x => x.Execute(It.IsAny<UpdateImageTagsCommand>()),
+                Times.Never());
+        }
+
+        [Test]
+        public void WhenUpdateImageTitleIsExecutedWithValidModel_CommandIsSent()
+        {
+            var input = new UpdateImageTitleInput()
+            {
+                 Title = "title"
+            };
+            Controller._UpdateImageTitle("imageId", input);
+            CommandInvokerMock.Verify(x => x.Execute(It.Is<UpdateImageTitleCommand>(y =>
+                y.Title == "title")), Times.Once());
+        }
+
+        [Test]
+        public void WhenUpdateImageTitleIsExecutedWithInvalidModel_CommandIsNotSent()
+        {
+            Controller.ModelState.AddModelError("whatever", "whatever");
+            Controller._UpdateImageTitle("whatever", new UpdateImageTitleInput());
+            CommandInvokerMock.Verify(x => x.Execute(It.IsAny<UpdateImageTitleCommand>()),
+                Times.Never());
         }
     }
 }

@@ -11,7 +11,6 @@ using RavenGallery.Core.Entities;
 
 namespace RavenGallery.Core.Tests.Services
 {
-    [TestFixture]
     public class ImageUploaderServiceTests
     {
         public Mock<IFileStorageService> FileStorageServiceMock;

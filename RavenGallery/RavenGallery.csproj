@@ -121,11 +121,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="InputModels\UpdateImageTagsInput.cs" />
+    <Compile Include="InputModels\UpdateImageTitleInput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validators\ImageNewViewModelValidator.cs" />
     <Compile Include="Validators\UserRegisterViewModelValidator.cs" />
     <Compile Include="Validators\UserSignInViewModelValidator.cs" />
-    <Compile Include="ViewModelBinders\ImageNewViewModelBinder.cs" />
+    <Compile Include="ViewModelBinders\CsvModelBinder.cs" />
     <Compile Include="ViewModels\ImageNewViewModel.cs" />
     <Compile Include="ViewModels\UserRegisterViewModel.cs" />
     <Compile Include="ViewModels\UserSignInViewModel.cs" />
@@ -147,10 +149,13 @@
     <Content Include="Content\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Content\jquery-ui-1.8.5.custom.css" />
     <Content Include="Global.asax" />
+    <Content Include="Includes\js\global.js" />
     <Content Include="Includes\js\image-browser.js" />
+    <Content Include="Includes\js\view-image.js" />
     <Content Include="Scripts\jquery-1.4.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.5.custom.min.js" />
     <Content Include="Scripts\jquery.autocomplete.js" />
+    <Content Include="Scripts\jquery.jeditable.js" />
     <Content Include="Scripts\jquery.tmpl.js" />
     <Content Include="Scripts\jquery.tmplPlus.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />

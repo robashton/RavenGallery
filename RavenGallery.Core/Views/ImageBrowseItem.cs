@@ -7,6 +7,11 @@ namespace RavenGallery.Core.Views
 {
     public class ImageBrowseItem
     {
+        public string Id
+        {
+            get;
+            private set;
+        }
         public string Title
         {
             get;
@@ -19,8 +24,9 @@ namespace RavenGallery.Core.Views
             private set;
         }
 
-        public ImageBrowseItem(string title, string filename)
+        public ImageBrowseItem(string id, string title, string filename)
         {
+            this.Id = id;
             this.Title = title;
             this.Filename = filename;
         }

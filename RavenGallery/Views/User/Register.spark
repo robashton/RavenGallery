@@ -1,7 +1,6 @@
 ﻿<viewdata model="UserRegisterViewModel" />
 <content name="title">Register</content>
-<h2>
-    Register</h2>
+<h2>Register</h2>
 <Form>
     <ul>
         <li>
