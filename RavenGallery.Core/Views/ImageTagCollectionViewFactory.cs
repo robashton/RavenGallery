@@ -20,6 +20,7 @@ namespace RavenGallery.Core.Views
         public ImageTagCollectionView Load(ImageTagCollectionInputModel input)
         {
             var query = this.documentSession.Query<ImageTagCollectionItem, ImageTags_GroupByTagName>()
+                .OrderByDescending(x=>x.Count)
                 .Take(25);
 
             if (!string.IsNullOrEmpty(input.SearchText))

@@ -29,7 +29,7 @@ namespace RavenGallery.Core.Indexes
                                      Name = g.Key,
                                      Count = g.Sum(x=>x.Count)
                                  },
-             Indexes = {{x=>x.Name, FieldIndexing.Analyzed}}
+             SortOptions = {{ x=> x.Count, SortOptions.Int }}
 
             }.ToIndexDefinition(this.DocumentStore.Conventions);
         }
