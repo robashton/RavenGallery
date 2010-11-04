@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
@@ -31,8 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Esent.Interop, Version=1.6.0.0, Culture=neutral, PublicKeyToken=8dd49bbdae3f61af, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Esent.Interop">
       <HintPath>..\_Libs\RavenDB\Esent.Interop.dll</HintPath>
     </Reference>
     <Reference Include="FluentValidation">
@@ -56,30 +56,154 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\_Libs\RavenDB\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Raven.Abstractions">
-      <HintPath>..\_Libs\RavenDB\Raven.Abstractions.dll</HintPath>
+    <Reference Include="Raven.Client">
+      <HintPath>..\_Libs\RavenDB\Raven.Client.dll</HintPath>
     </Reference>
-    <Reference Include="Raven.Client.Embedded">
-      <HintPath>..\_Libs\RavenDB\Raven.Client.Embedded.dll</HintPath>
-    </Reference>
-    <Reference Include="Raven.Client.Lightweight">
-      <HintPath>..\_Libs\RavenDB\Raven.Client.Lightweight.dll</HintPath>
-    </Reference>
-    <Reference Include="Raven.Database, Version=0.0.0.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Raven.Database">
       <HintPath>..\_Libs\RavenDB\Raven.Database.dll</HintPath>
     </Reference>
-    <Reference Include="Raven.Http">
-      <HintPath>..\_Libs\RavenDB\Raven.Http.dll</HintPath>
+    <Reference Include="Spatial.Net">
+      <HintPath>..\_Libs\RavenDB\Spatial.Net.dll</HintPath>
     </Reference>
-    <Reference Include="Raven.Munin">
-      <HintPath>..\_Libs\RavenDB\Raven.Munin.dll</HintPath>
+    <Reference Include="StructureMap">
+      <HintPath>..\_Libs\StructureMap\StructureMap.dll</HintPath>
     </Reference>
-    <Reference Include="Raven.Storage.Esent">
-      <HintPath>..\_Libs\RavenDB\Raven.Storage.Esent.dll</HintPath>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="CommandHandlers\RegisterNewUserCommandHandler.cs" />
+    <Compile Include="CommandHandlers\UpdateImageTagsCommandHandler.cs" />
+    <Compile Include="CommandHandlers\UpdateImageTitleCommandHandler.cs" />
+    <Compile Include="CommandHandlers\UploadUserImageCommandHandler.cs" />
+    <Compile Include="CommandInvoker.cs" />
+    <Compile Include="Commands\RegisterNewUserCommand.cs" />
+    <Compile Include="Commands\UpdateImageTagsCommand.cs" />
+    <Compile Include="Commands\UpdateImageTitleCommand.cs" />
+    <Compile Include="Commands\UploadUserImageCommand.cs" />
+    <Compile Include="Conventions\RegisterFirstInstanceOfInterface.cs" />
+    <Compile Include="Conventions\RegisterGenericTypesOfInterface.cs" />
+    <Compile Include="CoreRegistry.cs" />
+    <Compile Include="Documents\IDocument.cs" />
+    <Compile Include="Documents\ImageTagDocument.cs" />
+    <Compile Include="Documents\UserDocument.cs" />
+    <Compile Include="Entities\IEntity.cs" />
+    <Compile Include="Documents\ImageDocument.cs" />
+    <Compile Include="Entities\Image.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="ICommandHandler.cs" />
+    <Compile Include="ICommandInvoker.cs" />
+    <Compile Include="IEntityRepository.cs" />
+    <Compile Include="Indexes\ImageTags_GroupByTagName.cs" />
+    <Compile Include="Infrastructure\RequestValidator.cs" />
+    <Compile Include="IViewFactory.cs" />
+    <Compile Include="IViewRepository.cs" />
+    <Compile Include="Repositories\EntityRepository.cs" />
+    <Compile Include="Repositories\IImageRepository.cs" />
+    <Compile Include="Repositories\ImageRepository.cs" />
+    <Compile Include="Repositories\IUserRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Security\AuthenticationService.cs" />
+    <Compile Include="Security\IAuthenticationService.cs" />
+    <Compile Include="Infrastructure\RavenFileStorageService.cs" />
+    <Compile Include="Infrastructure\IFileStorageService.cs" />
+    <Compile Include="Services\IImageUploaderService.cs" />
+    <Compile Include="Services\ImageUploaderService.cs" />
+    <Compile Include="Services\IUserService.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="StructureMapControllerFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\HashUtil.cs" />
+    <Compile Include="Utility\IdUtil.cs" />
+    <Compile Include="ViewRepository.cs" />
+    <Compile Include="Views\ImageBrowseInputModel.cs" />
+    <Compile Include="Views\ImageBrowseItem.cs" />
+    <Compile Include="Views\ImageBrowseView.cs" />
+    <Compile Include="Views\ImageBrowseViewFactory.cs" />
+    <Compile Include="Views\ImageTagCollectionInputModel.cs" />
+    <Compile Include="Views\ImageTagCollectionItem.cs" />
+    <Compile Include="Views\ImageTagCollectionView.cs" />
+    <Compile Include="Views\ImageTagCollectionViewFactory.cs" />
+    <Compile Include="Views\ImageViewInputModel.cs" />
+    <Compile Include="Views\ImageView.cs" />
+    <Compile Include="Views\ImageViewFactory.cs" />
+    <Compile Include="Web\GenericModelBinder.cs" />
+    <Compile Include="Web\UserIdFilter.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+=======
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A92F7F6B-BFD1-42E5-AFD9-B2EBB3501655}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RavenGallery.Core</RootNamespace>
+    <AssemblyName>RavenGallery.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Esent.Interop">
+      <HintPath>..\_Libs\RavenDB\Esent.Interop.dll</HintPath>
     </Reference>
-    <Reference Include="Raven.Storage.Managed">
-      <HintPath>..\_Libs\RavenDB\Raven.Storage.Managed.dll</HintPath>
+    <Reference Include="FluentValidation">
+      <HintPath>..\_Libs\FluentValidation\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation.Mvc">
+      <HintPath>..\_Libs\FluentValidation\FluentValidation.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.NRefactory">
+      <HintPath>..\_Libs\RavenDB\ICSharpCode.NRefactory.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\_Libs\RavenDB\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net">
+      <HintPath>..\_Libs\RavenDB\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\_Libs\Moq\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\_Libs\RavenDB\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Client">
+      <HintPath>..\_Libs\RavenDB\Raven.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Database">
+      <HintPath>..\_Libs\RavenDB\Raven.Database.dll</HintPath>
     </Reference>
     <Reference Include="Spatial.Net">
       <HintPath>..\_Libs\RavenDB\Spatial.Net.dll</HintPath>
@@ -164,6 +288,7 @@
     <Compile Include="Web\UserIdFilter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+>>>>>>> b080f9a38d771843fdf379af62e67b95112e11cf
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

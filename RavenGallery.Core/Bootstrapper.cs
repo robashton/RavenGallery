@@ -7,6 +7,7 @@ using Raven.Client.Document;
 using Raven.Database;
 using Raven.Client.Indexes;
 using RavenGallery.Core.Indexes;
+using Raven.Client.Client;
 
 namespace RavenGallery.Core
 {
@@ -14,7 +15,7 @@ namespace RavenGallery.Core
     {
         public static void Startup()
         {
-            var documentStore = new DocumentStore
+            var documentStore = new EmbeddableDocumentStore
             {
                 Configuration = new RavenConfiguration
                 {

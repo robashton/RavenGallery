@@ -11,7 +11,7 @@ namespace RavenGallery.Core.Indexes
 {
     public class ImageTags_GroupByTagName : AbstractIndexCreationTask
     {
-        public override Raven.Database.Indexing.IndexDefinition CreateIndexDefinition()
+        public override IndexDefinition CreateIndexDefinition()
         {
             return new IndexDefinition<ImageDocument, ImageTagCollectionItem>()
             {

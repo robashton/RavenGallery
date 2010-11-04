@@ -17,6 +17,7 @@ using RavenGallery.Core.Entities;
 using RavenGallery.Core.Repositories;
 using RavenGallery.Core.Infrastructure;
 using System.Threading;
+using Raven.Client.Client;
 
 namespace RavenGallery.FlickrImport
 {
@@ -28,7 +29,7 @@ namespace RavenGallery.FlickrImport
         {
             Flickr flickr = new Flickr(); // PRIVATE KEY REMOVED
 
-            var documentStore = new DocumentStore
+            var documentStore = new EmbeddableDocumentStore
             {
                 Configuration = new RavenConfiguration
                 {

@@ -11,19 +11,19 @@ using System.Threading;
 using Raven.Client.Indexes;
 using RavenGallery.Core.Indexes;
 using Raven.Database.Extensions;
+using Raven.Client.Client;
 
 namespace RavenGallery.Core.Tests.Integration
 {
     public class LocalRavenTest
     {
-        private string path;
-        private DocumentStore store;
-        public DocumentStore Store { get { return store; } }
+        private EmbeddableDocumentStore store;
+        public EmbeddableDocumentStore Store { get { return store; } }
 
         [SetUp]
         public void CreateStore()
         {
-              store = new DocumentStore
+            store = new EmbeddableDocumentStore
             {
                 Configuration = new RavenConfiguration
                 {

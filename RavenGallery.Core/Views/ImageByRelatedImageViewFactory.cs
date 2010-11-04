@@ -23,7 +23,7 @@ namespace RavenGallery.Core.Views
                   .Tags.Select(x=>x.Name)
                   .ToArray();
           
-          var query = documentSession.Advanced.DynamicLuceneQuery<ImageDocument>();
+          var query = documentSession.Advanced.LuceneQuery<ImageDocument>();
           string orQuery = String.Join(" OR ", tags);
 
           query = query.Where(string.Format("Tags,Name:({0})", orQuery));

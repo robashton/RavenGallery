@@ -58,11 +58,23 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\_Libs\RavenDB\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Raven.Client">
-      <HintPath>..\_Libs\RavenDB\Raven.Client.dll</HintPath>
+    <Reference Include="Raven.Abstractions">
+      <HintPath>..\_Libs\RavenDB\Raven.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Client.Embedded">
+      <HintPath>..\_Libs\RavenDB\Raven.Client.Embedded.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Client.Lightweight">
+      <HintPath>..\_Libs\RavenDB\Raven.Client.Lightweight.dll</HintPath>
     </Reference>
     <Reference Include="Raven.Database">
       <HintPath>..\_Libs\RavenDB\Raven.Database.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Http">
+      <HintPath>..\_Libs\RavenDB\Raven.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Munin">
+      <HintPath>..\_Libs\RavenDB\Raven.Munin.dll</HintPath>
     </Reference>
     <Reference Include="Raven.Storage.Esent">
       <HintPath>..\_Libs\RavenDB\Raven.Storage.Esent.dll</HintPath>
