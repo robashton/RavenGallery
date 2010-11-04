@@ -11,6 +11,18 @@
   </div>
 </script>
 
+<script id="related-images-template" type="text/x-jquery-tmpl">
+  <div class="related-image">
+    <a href="/Image/View?imageId={{= Id }}">
+      <img src="/Resources/Image/{{= Filename}}" />
+    </a>
+  </div>
+</script>
+
 <div id="image-placeholder">
     
+</div>
+
+<div id="image-relatedimages">
+      
 </div>

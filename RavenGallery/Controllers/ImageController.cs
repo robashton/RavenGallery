@@ -107,5 +107,11 @@ namespace RavenGallery.Controllers
             var model = viewRepository.Load<ImageTagCollectionInputModel, ImageTagCollectionView>(input);
             return Json(model, JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult _GetRelatedImages(ImageByRelatedImageInputModel input)
+        {
+            return Json(viewRepository.Load<ImageByRelatedImageInputModel, ImageByRelatedImageView>(input),
+                 JsonRequestBehavior.AllowGet);
+        }
    }
 }
