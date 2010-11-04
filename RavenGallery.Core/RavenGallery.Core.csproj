@@ -129,6 +129,10 @@
     <Compile Include="Views\ImageBrowseItem.cs" />
     <Compile Include="Views\ImageBrowseView.cs" />
     <Compile Include="Views\ImageBrowseViewFactory.cs" />
+    <Compile Include="Views\ImageByRelatedImageInputModel.cs" />
+    <Compile Include="Views\ImageByRelatedImageView.cs" />
+    <Compile Include="Views\ImageByRelatedImageViewFactory.cs" />
+    <Compile Include="Views\ImageByRelatedViewItem.cs" />
     <Compile Include="Views\ImageTagCollectionInputModel.cs" />
     <Compile Include="Views\ImageTagCollectionItem.cs" />
     <Compile Include="Views\ImageTagCollectionView.cs" />

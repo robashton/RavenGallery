@@ -353,8 +353,24 @@ div.browsing-image img:hover { max-width: 100px;}
 
 /* Image View */
 
+#image-placeholder
+{
+    float: left;
+}
+
 #image-placeholder img
 {
     max-width: 300px;
     display: block;
+}
+
+#image-relatedimages
+{
+    margin-left: 85px;
+    float: left;
+}
+
+.related-image img
+{
+    max-width: 85px;
 }

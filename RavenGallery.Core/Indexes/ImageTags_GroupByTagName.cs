@@ -19,14 +19,15 @@ namespace RavenGallery.Core.Indexes
                               from tag in doc.Tags
                               select new
                               {
-                                  tag.Name
+                                  tag.Name,
+                                  Count = 1
                               },
                 Reduce = results => from result in results
                                     group result by result.Name into g
                                  select new
                                  {
                                      Name = g.Key,
-                                     Count = g.Count()
+                                     Count = g.Sum(x=>x.Count)
                                  },
              Indexes = {{x=>x.Name, FieldIndexing.Analyzed}}
 

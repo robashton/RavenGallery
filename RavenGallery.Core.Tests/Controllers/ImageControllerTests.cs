@@ -153,5 +153,18 @@ namespace RavenGallery.Core.Tests.Controllers
             CommandInvokerMock.Verify(x => x.Execute(It.IsAny<UpdateImageTitleCommand>()),
                 Times.Never());
         }
+
+        [Test]
+        public void WhenGetRelatedImagesIsExecutedWithValidMode_ViewIsReturned()
+        {
+            ImageByRelatedImageInputModel input = new ImageByRelatedImageInputModel();
+            ImageByRelatedImageView model = new ImageByRelatedImageView();
+            this.ViewRepositoryMock.Setup(x => x.Load<ImageByRelatedImageInputModel, ImageByRelatedImageView>(
+                input)).Returns(model);
+
+            var result = this.Controller._GetRelatedImages(input) as JsonResult;
+
+            Assert.AreEqual(model, result.Data);
+        }
     }
 }

@@ -11,6 +11,7 @@
 
 // NOTE: Stolen from StackOverflow: http://stackoverflow.com/questions/1219860/javascript-jquery-html-encoding
 // Utter. Genius.
+// Come to think of it, so is the above, hurrah StackOverflow
 function htmlEncode(value) {
     return $('<div/>').text(value).html();
 }

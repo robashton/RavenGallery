@@ -66,6 +66,26 @@
 
             }
         });
+
+        $.ajax({
+            dataType: "json",
+            url: '/Image/_GetRelatedImages?imageId=' + imageId,
+            error: function (xhr, ajaxOptions) {
+                alert(xhr.status + ':' + xhr.responseText);
+            },
+            success: function (data) {
+                $('#image-relatedimages').html('');
+
+                var tmpl = $('#related-images-template').html();
+                $.template('template', tmpl);
+
+                $.tmpl('template', data.Items)
+                    .appendTo('#image-relatedimages');
+                viewImage.hookEvents();
+            }
+        });
+
+
     }
 };
 
