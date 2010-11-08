@@ -8,13 +8,8 @@
     and NUnit</p>
 <label for="searchText">Search</label>
 <input type="text" id="searchText" name="searchText" />
-<script id="browsing-image-template" type="text/x-jquery-tmpl">
-        <div class="browsing-image">
-             <h4>{{= Title}}</h4>
-          <img src="/Resources/Image/{{= Filename}}" alt="{{= Title}}" />
-          <a href="/Image/View?imageId={{= Id }}">Edit</a>
-        </div>
-    
-    </script>
+
+<include href="browsing-image-template.htm" parse="html" />
+
 <div id="image-browser">
 </div>

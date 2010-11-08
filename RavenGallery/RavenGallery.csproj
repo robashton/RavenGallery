@@ -181,6 +181,7 @@
     <None Include="Views\User\SignIn.spark" />
     <None Include="Views\User\Register.spark" />
     <None Include="Views\User\SignOut.spark" />
+    <Content Include="Views\Home\browsing-image-template.htm" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
