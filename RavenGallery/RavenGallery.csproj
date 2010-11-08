@@ -83,10 +83,10 @@
       <HintPath>..\_Libs\RavenDB\Raven.Storage.Managed.dll</HintPath>
     </Reference>
     <Reference Include="Spark">
-      <HintPath>..\_Libs\Spark\Spark.dll</HintPath>
+      <HintPath>..\packages\Spark.1.1.39990.0\lib\Spark.dll</HintPath>
     </Reference>
     <Reference Include="Spark.Web.Mvc">
-      <HintPath>..\_Libs\Spark\Spark.Web.Mvc.dll</HintPath>
+      <HintPath>..\packages\Spark.Web.Mvc.1.1.39990.0\lib\Spark.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="Spatial.Net">
       <HintPath>..\_Libs\RavenDB\Spatial.Net.dll</HintPath>
@@ -123,8 +123,10 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebActivator, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppStart_SparkWebMvc.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\ResourcesController.cs" />
@@ -172,6 +174,7 @@
     <Content Include="Scripts\jquery.tmplPlus.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="packages.config" />
     <None Include="Views\Image\View.spark" />
     <None Include="Views\Image\New.spark" />
     <Content Include="Views\Bindings.xml" />

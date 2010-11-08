@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using RavenGallery.Core;
-using Spark;
-using Spark.Web.Mvc;
 using StructureMap;
-using FluentValidation.Attributes;
 using FluentValidation.Mvc;
 using FluentValidation;
 using RavenGallery.Core.Web;
@@ -41,20 +35,12 @@ namespace RavenGallery
         {
             AreaRegistration.RegisterAllAreas();
             RegisterRoutes(RouteTable.Routes);
-            RegisterViewEngine();
 
             ModelValidatorProviders.Providers.Add(
                 new FluentValidationModelValidatorProvider(new StructureMapValidatorFactory()));
             ControllerBuilder.Current.SetControllerFactory(new RavenGallery.Core.StructureMapControllerFactory());
             ModelBinders.Binders.DefaultBinder = new GenericBinderResolver();
             Bootstrapper.Startup();
-        }
-
-        private static void RegisterViewEngine()
-        {
-            ISparkSettings settings = new SparkSettings()
-                .SetAutomaticEncoding(true);
-            SparkEngineStarter.RegisterViewEngine(settings);
         }
 
         protected void Application_EndRequest()
