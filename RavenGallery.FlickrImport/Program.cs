@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,8 +26,8 @@ namespace RavenGallery.FlickrImport
         private const string RAVENPATH = @"D:\Programming\RavenGallery\RavenGallery\App_Data\RavenDB";
        
         public static void Main(string[] args)
-        {
-            Flickr flickr = new Flickr(); // PRIVATE KEY REMOVED
+        {          
+            Flickr flickr = new Flickr();
 
             var documentStore = new EmbeddableDocumentStore
             {
